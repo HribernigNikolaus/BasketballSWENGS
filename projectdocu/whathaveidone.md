@@ -16,6 +16,8 @@ this file tracks the time and changes from front- and backend project.
 
 ##Special changes
 
-29.12.2017 Changed in Player Entity sozNr to playerNumber
-29.12.2017 Changed in Player Entity shoeSize to playerPosition
+29.12.2017 Changed sozNr to playerNumber in Player Entity 
+29.12.2017 Changed shoeSize to playerPosition in Player Entity 
+29.12.2017 Removed playerWeight from Player Entity
+29.12.2017 Added teamCount, foundation and fullName to Team Entity
 
