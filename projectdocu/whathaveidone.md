@@ -1,5 +1,6 @@
 #Changelog
 
+this file tracks the time and changes from front- and backend project.
 ##Timetable
 |  Date     | Name        | Task             | Time|
 |  -------  | ----------- |------------------|:---:|
