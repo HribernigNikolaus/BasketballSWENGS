@@ -4,10 +4,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import {HomeComponent} from "./home/home.component";
+
+import {RouterModule} from "@angular/router";
+import {SidebarComponent} from "./sidebar/sidebar.component";
+import {NavbarComponent} from "./navbar/navbar.component";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule
