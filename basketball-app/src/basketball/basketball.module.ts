@@ -15,6 +15,10 @@ import { LeagueCreateComponent } from './league/league-create/league-create.comp
 import { PlayerCreateComponent } from './player/player-create/player-create.component';
 import { StadiumCreateComponent } from './stadium/stadium-create/stadium-create.component';
 import { TeamCreateComponent } from './team/team-create/team-create.component';
+import {TeamService} from "./team/team-service/team.service";
+import {PlayerService} from "./player/player-service/player.service";
+import {StadiumService} from "./stadium/stadium-service/stadium.service";
+import {LeagueService} from "./league/league-service/league.service";
 
 @NgModule({
   imports: [
@@ -38,7 +42,10 @@ import { TeamCreateComponent } from './team/team-create/team-create.component';
     StadiumCreateComponent
   ],
   providers:[
-
+    TeamService,
+    PlayerService,
+    StadiumService,
+    LeagueService
   ],
   exports:[
 
