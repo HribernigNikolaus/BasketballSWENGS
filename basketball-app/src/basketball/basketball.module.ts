@@ -19,6 +19,10 @@ import {TeamService} from "./team/team-service/team.service";
 import {PlayerService} from "./player/player-service/player.service";
 import {StadiumService} from "./stadium/stadium-service/stadium.service";
 import {LeagueService} from "./league/league-service/league.service";
+import {LeagueCardComponent} from "./league/league-card/league-card.component";
+import {TeamCardComponent} from "./team/team-card/team-card.component";
+import {PlayerCardComponent} from "./player/player-card/player-card.component";
+import {StadiumCardComponent} from "./stadium/stadium-card/stadium-card.component";
 
 @NgModule({
   imports: [
@@ -39,7 +43,11 @@ import {LeagueService} from "./league/league-service/league.service";
     LeagueCreateComponent,
     TeamCreateComponent,
     PlayerCreateComponent,
-    StadiumCreateComponent
+    StadiumCreateComponent,
+    LeagueCardComponent,
+    StadiumCardComponent,
+    TeamCardComponent,
+    PlayerCardComponent,
   ],
   providers:[
     TeamService,

@@ -13,10 +13,6 @@ import {APP_ROUTES} from "./app.routes";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
-import { LeagueCardComponent } from '../basketball/league/league-card/league-card.component';
-import { StadiumCardComponent } from '../basketball/stadium/stadium-card/stadium-card.component';
-import { TeamCardComponent } from '../basketball/team/team-card/team-card.component';
-import { PlayerCardComponent } from '../basketball/player/player-card/player-card.component';
 
 
 
@@ -26,10 +22,7 @@ import { PlayerCardComponent } from '../basketball/player/player-card/player-car
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    LeagueCardComponent,
-    StadiumCardComponent,
-    TeamCardComponent,
-    PlayerCardComponent,
+
 
   ],
   imports: [
