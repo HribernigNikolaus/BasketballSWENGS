@@ -9,6 +9,10 @@ import {HomeComponent} from "./home/home.component";
 import {RouterModule} from "@angular/router";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {NavbarComponent} from "./navbar/navbar.component";
+import {APP_ROUTES} from "./app.routes";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {BasketballModule} from "../basketball/basketball.module";
 
 
 @NgModule({
@@ -19,7 +23,12 @@ import {NavbarComponent} from "./navbar/navbar.component";
     HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BasketballModule,
+
+    RouterModule.forRoot(APP_ROUTES, { useHash: true, enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
