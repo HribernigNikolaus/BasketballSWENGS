@@ -15,12 +15,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
