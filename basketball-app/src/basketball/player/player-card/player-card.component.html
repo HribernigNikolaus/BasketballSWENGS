@@ -1,3 +1,43 @@
-<p>
-  player-card works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <div
+    class="card"
+    [ngStyle]="{'background-color':(selected) ? 'rgb(204, 197, 185)' : 'white' }">
+
+    <div class="header">
+      <h2 class="title">{{item.firstName}} + {{item.lastName}}</h2>
+    </div>
+    <div class="content">
+      <ng-content select=".top"></ng-content>
+
+      <p> Player-No.: #{{item.playerNumber}}</p>
+      <p> Team: {{item.team}}</p>
+      <p> Marketvalue: {{item.marketValue}}</p>
+      <p> Height: {{item.height}}</p>
+      <p> Weight: {{item.weight}}</p>
+      <p> Birthdate: {{item.dayOfBirth | dayOfBirth: 'dd.MM.yyyy HH:mm'}}</p>
+
+      <ng-content select=".bottom"></ng-content>
+      <p>
+        <button
+          class="btn btn-default"
+          *ngIf="!selected"
+          (click)="deselect()">
+          Remove
+        </button>
+      </p>
+      <a class="btn btn-default"
+         [routerLink] = "['/player-edit', item.id, { showDetails: true }]">
+        Edit
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
