@@ -21,8 +21,10 @@
       <p> Marketvalue: {{item.marketValue}}</p>
       <p> Height: {{item.height}}</p>
       <p> Weight: {{item.weight}}</p>
-      <p> Birthdate: {{item.dayOfBirth | dayOfBirth: 'dd.MM.yyyy HH:mm'}}</p>
-
+<!--      <p> Birthdate: {{item.dayOfBirth | dayOfBirth: 'dd.MM.yyyy HH:mm'}}</p>
+throws an error when activated "The pipe 'dayOfBirth' could not be found"
+ //TODO
+ -->
       <ng-content select=".bottom"></ng-content>
       <p>
         <button

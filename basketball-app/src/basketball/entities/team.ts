@@ -6,7 +6,7 @@ export interface Team{
   id: number;
   name : string;
   hometown : string;
-  startDate : string;
+  startDate : string; //TODO Eigentlich Date?
   mascot : string;
   players : Array<Player>;
   stadium : Stadium;

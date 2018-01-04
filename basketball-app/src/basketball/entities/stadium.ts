@@ -7,7 +7,7 @@ export interface Stadium{
   city : string;
   streetAndNumber : string;
   plz : string;
-  buildDate : string;
+  buildDate : string; //TODO: Eigentlich Date?
   visitorLimit : number;
   teams : Array<Team>;
 }
