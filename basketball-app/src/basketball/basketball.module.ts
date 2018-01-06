@@ -23,6 +23,7 @@ import {LeagueCardComponent} from "./league/league-card/league-card.component";
 import {TeamCardComponent} from "./team/team-card/team-card.component";
 import {PlayerCardComponent} from "./player/player-card/player-card.component";
 import {StadiumCardComponent} from "./stadium/stadium-card/stadium-card.component";
+import {ImpressumComponent} from "./impressum/impressum.component";
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import {StadiumCardComponent} from "./stadium/stadium-card/stadium-card.componen
     StadiumCardComponent,
     TeamCardComponent,
     PlayerCardComponent,
+    ImpressumComponent
   ],
   providers:[
     TeamService,

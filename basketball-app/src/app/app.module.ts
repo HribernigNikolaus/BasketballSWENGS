@@ -13,6 +13,7 @@ import {APP_ROUTES} from "./app.routes";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
+import {ImpressumComponent} from "../basketball/impressum/impressum.component";
 
 
 
@@ -21,7 +22,7 @@ import {BasketballModule} from "../basketball/basketball.module";
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent,
+    HomeComponent
 
 
   ],

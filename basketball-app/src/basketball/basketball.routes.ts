@@ -11,6 +11,7 @@ import {TeamEditComponent} from "./team/team-edit/team-edit.component";
 import {PlayerEditComponent} from "./player/player-edit/player-edit.component";
 import {StadiumEditComponent} from "./stadium/stadium-edit/stadium-edit.component";
 import {LeagueEditComponent} from "./league/league-edit/league-edit.component";
+import {ImpressumComponent} from "./impressum/impressum.component";
 
 export const BASKETBALL_ROUTES: Routes = [
   // Standard Components
@@ -29,6 +30,10 @@ export const BASKETBALL_ROUTES: Routes = [
   {
     path:'team',
     component: TeamComponent
+  },
+  {
+    path:'impressum',
+    component: ImpressumComponent
   },
   // ---------------------------------
   // Create Components
