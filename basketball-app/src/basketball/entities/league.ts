@@ -6,3 +6,4 @@ export interface League{
   land : string;
   teams : Array<Team>;
 }
+//TODO change to actual db values
