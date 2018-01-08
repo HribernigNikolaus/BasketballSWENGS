@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <h1>I am the LeagueComponent</h1>
-</body>
-</html>
+<div class="card">
+  <div class="header">
+    <h2 class="title">All Leagues</h2>
+  </div>
+  <div class="content">
+    <form>
+      <div class="form-group">
+        <button
+          (click)="showAllLeagues()"
+          class="btn btn-default">show All Leagues</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let l of allLeagues" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <league-card
+      [item]="l"
+      [selected]="basket[l.id]" (selectedChange)="basket[l.id] = $event">
+      <pre>{{ l | json }}</pre>
+      <h1 class="top">League</h1>
+    </league-card>
+  </div>
+</div>
+<div class="card">
+  <div class="content">
+    <pre>{{ basket | json }}</pre>
+  </div>
+</div>

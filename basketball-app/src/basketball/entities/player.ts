@@ -10,7 +10,6 @@ export interface Player{
   marketValue : number;
   playerNumber : number;
   height : number;
-  weight : number; //TODO: not used anymore from database
   position : string;
   team : Team;
 

@@ -1,13 +1,13 @@
 import {Team} from "./team";
 
 export interface Stadium{
-  id : number;
-  name : string;
-  land : string;
-  city : string;
-  streetAndNumber : string;
-  plz : string;
+  //id : number;
   buildDate : string; //TODO: Eigentlich Date?
-  visitorLimit : number;
+  city : string;
+  land : string;
+  name : string;
+  plz : string;
+  streetAndNumber : string;
   teams : Array<Team>;
+  visitorLimit : number;
 }

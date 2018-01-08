@@ -2,8 +2,11 @@ import {Team} from "./team";
 
 export interface League{
   id : number;
-  name : string;
+  foundation_year:number;
+  fullName : string;
   land : string;
+  name: string;
+  teamCount: number;
   teams : Array<Team>;
 }
-//TODO change to actual db values
+
