@@ -15,11 +15,12 @@
   </div>
   <div class="content">
     <ng-content select=".top"></ng-content>
-
-    <p> League-ID.: {{item.id}}</p>
+    <p> Full name: {{item.fullName}}</p>
     <p> Land: {{item.land}}</p>
     <p> Teams: {{item.teams}}</p>
-<!--TODO: add missing values according to db-->
+    <p> TeamCount: {{item.teamCount}}</p>
+    <p> Foundation Year: {{item.foundation_year}}</p>
+
 
     <ng-content select=".bottom"></ng-content>
     <p>
@@ -35,7 +36,50 @@
       Edit
     </a>
   </div>
-</div>
 
+  <form *ngIf="league">
+
+    <div class="form-group">
+      <label>Id:</label>
+      <input [(ngModel)]="league.id" name="id" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Name:</label>
+      <input [(ngModel)]="league.name" name="name"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Full Name:</label>
+      <input [(ngModel)]="league.fullName" name="fullName"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Land:</label>
+      <input [(ngModel)]="league.land" name="land"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Teams:</label>
+      <input [(ngModel)]="league.teams" name="teams"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label>TeamCount:</label>
+      <input [(ngModel)]="league.teamCount" name="teamCount"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Foundation Year:</label>
+      <input [(ngModel)]="league.foundation_year" name="foundation_year"
+             class="form-control">
+    </div>
+
+
+    <button class="btn btn-default" click="saveLeague()">Save</button>
+
+  </form>
+
+</div>
 </body>
 </html>
