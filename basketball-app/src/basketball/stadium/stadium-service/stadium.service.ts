@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Stadium} from "../../entities/stadium";
 import {Observable} from "rxjs/Observable";
+import {Team} from "../../entities/team";
 
 @Injectable()
 export class StadiumService{
@@ -18,6 +19,8 @@ export class StadiumService{
     toPromise().
     then(stadiums => stadiums['_embedded']['stadiums']);
   }
+
+
 
   save(stadium:Stadium): Observable<Stadium>{
     let url= 'http://localhost:8080/stadiums'

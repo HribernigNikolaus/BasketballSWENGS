@@ -42,6 +42,8 @@ export class StadiumComponent implements OnInit {
     );
   }
 
+
+
   /*showAllStadiums(): void {
     this.stadiumService.findAll().subscribe(
       (stadiums:Stadium[])=>{
@@ -63,6 +65,8 @@ export class StadiumComponent implements OnInit {
     );
 
   }*/
+
+
   showAllStadiums(): void {
     this.stadiumService.findAll()
       .then(stadiums => this.allStadiums = stadiums)

@@ -2,7 +2,7 @@ import {Team} from "./team";
 
 export interface League{
   id : number;
-  foundation_year:number;
+  foundationYear:number;
   fullName : string;
   land : string;
   name: string;

@@ -32,6 +32,14 @@ export const BASKETBALL_ROUTES: Routes = [
     component: TeamComponent
   },
   {
+    path:'stadium/team/:id',
+    component: TeamComponent
+  },
+  {
+    path:'league/team/:id',
+    component: TeamComponent
+  },
+  {
     path:'impressum',
     component: ImpressumComponent
   },

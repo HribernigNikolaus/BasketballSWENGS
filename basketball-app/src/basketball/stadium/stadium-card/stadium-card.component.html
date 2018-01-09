@@ -22,7 +22,12 @@
     <p> ZIP: {{item.plz}}</p>
     <p> Builddate: {{item.buildDate }}</p>
     <p> Visitorlimit: {{item.visitorLimit }}</p>
-    <p> Teams: {{item.teams }}</p>
+
+    <p *ngFor="let team of item.team">
+      <label>Team: </label>
+      <a [routerLink]="['team', team.id]">{{team.name}}</a>
+    </p>
+
 
     <ng-content select=".bottom"></ng-content>
     <p>
@@ -39,7 +44,7 @@
     </a>
   </div>
 
-  <form *ngIf="stadium">
+<!--  <form *ngIf="stadium">
 
     <div class="form-group">
       <label>Id:</label>
@@ -56,11 +61,20 @@
       <input [(ngModel)]="stadium.land" name="land"
              class="form-control">
     </div>
-    <div class="form-group">
-      <label>Teams:</label>
-      <input [(ngModel)]="stadium.teams" name="teams"
-             class="form-control">
-    </div>
+
+    <form *ngFor="let t of getTeamsofStadium(stadium)">
+        <div class="form-group">
+        <label>Team Name:</label>
+        <input [(ngModel)]="t.name" name="teamName"
+               class="form-control">
+      </div>
+        <div class="form-group">
+          <label>Team City:</label>
+          <input [(ngModel)]="t.city" name="teamCity"
+                 class="form-control">
+        </div>
+      </form>
+
     <div class="form-group">
       <label>City:</label>
       <input [(ngModel)]="stadium.city" name="city"
@@ -90,7 +104,7 @@
     <button class="btn btn-default" click="savePlayer()">Save</button>
 
   </form>
-
+-->
 </div>
 </body>
 </html>
