@@ -11,4 +11,5 @@ export interface Team{
   players : Array<Player>;
   stadium : Stadium;
   league : League;
+  version: number;
 }

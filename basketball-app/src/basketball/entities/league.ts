@@ -8,5 +8,6 @@ export interface League{
   name: string;
   teamCount: number;
   teams : Array<Team>;
+  version: number;
 }
 

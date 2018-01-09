@@ -6,12 +6,13 @@ export interface Player{
   id : number;
   firstName : string;
   lastName: string;
-  dayOfBirth : string; //TODO: eigentlich Date?
+  dayOfBirth : Date; //TODO: eigentlich Date?
   marketValue : number;
   playerNumber : number;
   height : number;
   position : string;
   team : Team;
+  version: number;
 
 
 }
