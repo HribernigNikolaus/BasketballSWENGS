@@ -24,11 +24,13 @@ import {TeamCardComponent} from "./team/team-card/team-card.component";
 import {PlayerCardComponent} from "./player/player-card/player-card.component";
 import {StadiumCardComponent} from "./stadium/stadium-card/stadium-card.component";
 import {ImpressumComponent} from "./impressum/impressum.component";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     RouterModule.forChild(BASKETBALL_ROUTES)
   ],
