@@ -6,7 +6,7 @@ export interface Player{
   id : number;
   firstName : string;
   lastName: string;
-  dayOfBirth : Date; //TODO: eigentlich Date?
+  dayOfBirth : string; //TODO: eigentlich Date?
   marketValue : number;
   playerNumber : number;
   height : number;

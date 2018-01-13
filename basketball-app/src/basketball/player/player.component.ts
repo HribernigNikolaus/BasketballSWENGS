@@ -16,7 +16,7 @@ export class PlayerComponent implements OnInit {
   team : Team;
   selectedPlayer:Player;
   message:String;
-  allPlayers:Player[];
+  allPlayers:Array<Player> = [];
 
   basket: object = {
 
@@ -44,13 +44,18 @@ export class PlayerComponent implements OnInit {
     );
   }
 
-  showAllPlayers(): void {
+/*  showAllPlayers(): void {
     this.playerService.findAll().subscribe(
       (players:Player[])=>{
         this.allPlayers = players;},
       (errResp) =>{console.error("Loading failed", errResp)}
       );
-
+  }
+*/
+  showAllPlayers(): void {
+    this.playerService.findAll()
+      .then(player => this.allPlayers = player)
+      .catch(err => console.log(err))
   }
 
   select(p:Player): void{
