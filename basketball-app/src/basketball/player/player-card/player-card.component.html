@@ -17,10 +17,14 @@
     <ng-content select=".top"></ng-content>
 
     <p> Player-No.: #{{item.playerNumber}}</p>
+
     <p> Team: {{item.team}}</p>
+      <a [routerLink]="['team', this.id]">{{this.name}}</a>
+
     <p> Marketvalue: {{item.marketValue}}</p>
     <p> Height: {{item.height}}</p>
-    <p> Birthdate: {{item.birthDate | date: 'dd.MM.yyyy HH:mm' }}</p>
+    <p> Birthdate: {{item.birthDate}}</p>
+
 
     <ng-content select=".bottom"></ng-content>
     <p>
@@ -36,6 +40,7 @@
       Edit
     </a>
   </div>
+<!--
 
   <form *ngIf="player">
 
@@ -78,6 +83,8 @@
     <button class="btn btn-default" click="savePlayer()">Save</button>
 
   </form>
+
+  -->
 
 </div>
 </body>

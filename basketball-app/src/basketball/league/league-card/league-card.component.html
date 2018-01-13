@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>LeagueCard</title>
 </head>
 <body>
 
@@ -25,22 +25,23 @@
     <p> TeamCount: {{item.teamCount}}</p>
     <p> Foundation Year: {{item.foundationYear}}</p>
 
-
+  </div>
+  <div class = "bottom">
     <ng-content select=".bottom"></ng-content>
-    <p>
+
       <button
         class="btn btn-default"
         *ngIf="!selected"
         (click)="deselect()">
         Remove
       </button>
-    </p>
+
     <a class="btn btn-default"
        [routerLink] = "['/league-edit', item.id, { showDetails: true }]">
       Edit
     </a>
   </div>
-
+<!--
   <form *ngIf="league">
 
     <div class="form-group">
@@ -83,7 +84,7 @@
     <button class="btn btn-default" click="saveLeague()">Save</button>
 
   </form>
-
+-->
 </div>
 </body>
 </html>

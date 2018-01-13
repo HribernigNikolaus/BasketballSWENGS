@@ -18,13 +18,7 @@ export class PlayerComponent implements OnInit {
   message:String;
   allPlayers:Array<Player> = [];
 
-  basket: object = {
-
-    "3": true,
-    "4": false,
-    "5": true
-
-  };
+  basket: object = {};
 
   constructor (private playerService:PlayerService) {}
   ngOnInit(){

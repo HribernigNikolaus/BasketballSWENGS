@@ -1,3 +1,56 @@
-<p>
-  league-create works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1 class="title">League Edit</h1>
+  </div>
+  <div class="form-group">
+
+
+    <form *ngIf="league">
+
+      <div class="form-group">
+        <label>Name: </label>
+        <input [(ngModel)]="league.name" name="name"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Full Name: </label>
+        <input [(ngModel)]="league.fullName" name="fullName"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Land: </label>
+        <input [(ngModel)]="league.land" name="land"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Team Count :</label>
+        <input [(ngModel)]="league.teamCount" name="teamCount"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Foundation Year: </label>
+        <input [(ngModel)]="league.foundationYear" name="foundationYear"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Teams: </label>
+        <input [(ngModel)]="league.teams" name="teams"
+               class="form-control">
+      </div>
+
+
+      <button class="btn btn-default" (click)="saveStadium()">Save</button>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>

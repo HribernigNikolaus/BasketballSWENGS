@@ -8,6 +8,10 @@
         <button
           (click)="showAllLeagues()"
           class="btn btn-default">show All Leagues</button>
+        <a class="btn btn-default"
+           [routerLink] = "['/league-create']">
+          Add New League
+        </a>
       </div>
     </form>
   </div>
@@ -19,12 +23,9 @@
       [item]="l"
       [selected]="basket[l.id]" (selectedChange)="basket[l.id] = $event">
       <pre>{{ l | json }}</pre>
-      <h1 class="top">League</h1>
+      <h3 class="top"></h3>
     </league-card>
   </div>
 </div>
-<div class="card">
-  <div class="content">
-    <pre>{{ basket | json }}</pre>
-  </div>
-</div>
+
+

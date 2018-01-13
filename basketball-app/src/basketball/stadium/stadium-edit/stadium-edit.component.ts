@@ -40,9 +40,9 @@ export class StadiumEditComponent implements OnInit {
     )
 
     this.editForm = this.fb.group({
-      id: [],
+      id: [1],
       buildDate: [],
-      city: [],
+      city: 'Test',
       land: [],
       name: [],
       plz: [],

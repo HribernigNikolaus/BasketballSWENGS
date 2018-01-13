@@ -20,11 +20,7 @@ export class LeagueComponent implements OnInit {
 
   allLeagues:Array<League> = [];
 
-  basket: object = {
-
-    "3": true,
-    "4": false,
-  };
+  basket: object = {};
 
   constructor (private leagueService:LeagueService) {}
   ngOnInit(){
@@ -36,6 +32,7 @@ export class LeagueComponent implements OnInit {
       .then(leagues => this.allLeagues = leagues)
       .catch(err=>console.log(err))
   }
+
 
   select(l:League): void{
     this.selectedLeague = l;
