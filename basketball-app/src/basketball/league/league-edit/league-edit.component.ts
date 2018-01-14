@@ -22,7 +22,7 @@ export class LeagueEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private leagueService: LeagueService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class LeagueEditComponent implements OnInit {
       fullName: 'Test',
       teamCount: [],
       foundationYear: [],
-      teams : [],
+      teams : ['yolo','test'],
 
     })
   }

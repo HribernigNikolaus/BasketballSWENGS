@@ -1,7 +1,11 @@
+
 import {Component, OnInit} from "@angular/core";
 import {League} from "../entities/league";
 import {Team} from "../entities/team";
 import {LeagueService} from "./league-service/league.service";
+import {FormControl} from "@angular/forms";
+import "rxjs/add/operator/distinctUntilChanged";
+import "rxjs/add/operator/debounceTime";
 
 @Component({
   selector: 'league',
@@ -22,8 +26,18 @@ export class LeagueComponent implements OnInit {
 
   basket: object = {};
 
+  searchField: FormControl;
+  searches: string[] = [];
+
   constructor (private leagueService:LeagueService) {}
   ngOnInit(){
+
+    this.searchField = new FormControl();
+    this.searchField.valueChanges
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe(term => {this.searches.push(term);
+      });
 
   }
 

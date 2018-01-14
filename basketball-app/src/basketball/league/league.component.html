@@ -13,10 +13,25 @@
            [routerLink] = "['/league-create']">
           Add New League
         </a>
+ <!-- Reaktive Suchfunktion
+
+        <input type="search"
+               class="form-control"
+               placeholder="Search League Name"
+               [formControl]="searchField">
+        <hr/>
+        <ul>
+          <li *ngFor="let search of searches">{{ search }}</li>
+        </ul>
+        -->
       </div>
     </form>
   </div>
 </div>
+
+
+
+
 
 <div class="row">
   <div *ngFor="let l of allLeagues" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">

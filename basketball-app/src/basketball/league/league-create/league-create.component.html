@@ -42,9 +42,15 @@
       </div>
       <div class="form-group">
         <label>Teams: </label>
-        <input [(ngModel)]="league.teams" name="teams"
-               class="form-control">
+        <select class="form-control">
+          <option value="">Select Team</option>
+          <option *ngFor="let team of teams"
+                  [value]="team.name">
+            {{team.name}}
+          </option>
+        </select>
       </div>
+
 
 
       <button class="btn btn-default" (click)="saveStadium()">Save</button>
