@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {League} from "../../entities/league";
 import {Observable} from "rxjs/Observable";
-import {Stadium} from "../../entities/stadium";
 
 @Injectable()
 export class LeagueService{

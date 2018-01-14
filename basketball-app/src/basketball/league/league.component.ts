@@ -31,14 +31,14 @@ export class LeagueComponent implements OnInit {
 
   constructor (private leagueService:LeagueService) {}
   ngOnInit(){
-
+/* //TODO: reaktive suchfunktion
     this.searchField = new FormControl();
     this.searchField.valueChanges
       .debounceTime(400)
       .distinctUntilChanged()
       .subscribe(term => {this.searches.push(term);
       });
-
+*/
   }
 
   showAllLeagues(): void {

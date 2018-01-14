@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'stadium-edit',
+  selector: 'league-edit',
   templateUrl: './league-edit.component.html',
   styleUrls: ['./league-edit.component.css']
 })
@@ -13,7 +13,6 @@ export class LeagueEditComponent implements OnInit {
 
   id: string;
   showDetails: string;
-
   league: League;
   errors: string;
 
@@ -40,15 +39,26 @@ export class LeagueEditComponent implements OnInit {
 
     this.editForm = this.fb.group({
       name: [],
-      fullName: 'Test',
+      fullName: [],
       teamCount: [],
       foundationYear: [],
-      teams : ['yolo','test'],
+     // teams : [],
 
     })
+
+ /* Filling the form with values from db?
+    this.editForm.patchValue({
+        name: this.league.name,
+      fullName: this.league.fullName,
+      teamCount: this.league.teamCount,
+      foundationYear: this.league.foundationYear
+      }
+    )
+    */
   }
 
-  saveStadium() {
+
+  saveLeague() {
     this.leagueService.save(this.league).subscribe(
       league => {
         this.league = league;
