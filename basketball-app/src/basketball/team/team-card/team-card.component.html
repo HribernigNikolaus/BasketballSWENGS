@@ -19,11 +19,11 @@
     <p> Hometown: {{item.hometown}}</p>
     <p> Startdate: {{item.startDate}}</p>
     <p> Mascot: {{item.mascot}}</p>
-<!--    <p *ngFor="let player of item.player">
+   <p *ngFor="let player of item.player">
       <label>Players: </label>
-      <a [routerLink]="['player', player.id]">{{player.firstName}}</a>
+      <a [routerLink]="['player', player.id]">{{player.firstName}} {{player.lastName}}</a>
     </p>
-    <p> Stadium: {{item.stadium.name }}</p>
+   <!-- <p> Stadium: {{item.stadium.name }}</p>
     <p> League: {{item.league.name }}</p>-->
 
 

@@ -26,6 +26,7 @@ export class StadiumComponent implements OnInit {
 
   constructor (private stadiumService:StadiumService) {}
   ngOnInit(){
+    this.stadiumService.findAll().then(stadiums => this.allStadiums = stadiums).catch(err=>console.log(err))
 
   }
 
