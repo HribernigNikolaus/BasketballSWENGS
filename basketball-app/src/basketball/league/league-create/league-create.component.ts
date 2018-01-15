@@ -44,7 +44,7 @@ export class LeagueCreateComponent implements OnInit {
       teamCount: [],
       foundationYear: [],
       teams : [],
-
+ 
     })
   }
 
