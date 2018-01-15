@@ -7,7 +7,7 @@
 <body>
 <div class="card">
   <div class="header">
-    <h1 class="title">Stadium Edit</h1>
+    <h1 class="title">Add a Stadium</h1>
   </div>
   <div class="form-group">
 
@@ -15,55 +15,206 @@
 
   <form *ngIf="stadium">
 
-    <div class="form-group">
-      <label>Id:</label>
-      <input [(ngModel)]="stadium.id" name="id" class="form-control">
-    </div>
 
-    <div class="form-group">
+    <div class="form-group" >
       <label>Name:</label>
+
       <input [(ngModel)]="stadium.name" name="name"
-             class="form-control">
+             class="form-control"
+             #name="ngModel"
+              required
+              minlength="4"
+              maxlength="24"
+             pattern="[a-zA-Z -]*"
+              >
     </div>
 
-    <div class="form-group">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors.maxlength">
+        Name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="name.errors.pattern">
+        A name cannot contain numbers.
+      </div>
+    </div>
+
+
+    <div>
       <label>Teams:</label>
       <input [(ngModel)]="stadium.teams" name="teams"
-             class="form-control">
+             class="form-control"
+              #teams="ngModel"
+              required>
     </div>
+    <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="teams.errors.required">
+        A team is required.
+      </div>
+    </div>
+
+
 
     <div class="form-group">
       <label>Visitorlimit:</label>
       <input [(ngModel)]="stadium.visitorLimit" name="visitorLimit"
-             class="form-control">
+             class="form-control"
+             #visitorLimit="ngModel"
+              required
+              pattern="[0-9]*">
+    </div>
+    <div *ngIf="visitorLimit.invalid && (visitorLimit.dirty || visitorLimit.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="visitorLimit.errors.required">
+        A visitorlimit is required.
+      </div>
+      <div *ngIf="visitorLimit.errors.pattern">
+        Only numbers are allowed.
+      </div>
     </div>
 
     <div class="form-group">
       <label>Land:</label>
       <input [(ngModel)]="stadium.land" name="land"
-             class="form-control">
+             class="form-control"
+              #land="ngModel"
+              required
+             minlength="4"
+             maxlength="24"
+             pattern="[a-zA-Z -]*"
+              >
     </div>
+
+    <div *ngIf="land.invalid && (land.dirty || land.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="land.errors.required">
+        A country is required.
+      </div>
+      <div *ngIf="land.errors.minlength">
+        A country must have at least 4 characters.
+      </div>
+      <div *ngIf="land.errors.maxlength">
+        A country's name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="land.errors.pattern">
+        A country's name cannot contain numbers.
+      </div>
+    </div>
+
+
     <div class="form-group">
       <label>City:</label>
       <input [(ngModel)]="stadium.city" name="city"
-             class="form-control">
+             class="form-control"
+             #city="ngModel"
+             required
+             minlength="3"
+             maxlength="24"
+             pattern="[a-zA-Z -]*"
+      >
     </div>
+
+    <div *ngIf="city.invalid && (city.dirty || city.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="city.errors.required">
+        A city is required.
+      </div>
+      <div *ngIf="city.errors.minlength">
+        A city must have at least 3 characters.
+      </div>
+      <div *ngIf="city.errors.maxlength">
+        A city's name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="city.errors.pattern">
+        A city's name cannot contain numbers.
+      </div>
+    </div>
+
     <div class="form-group">
       <label>Street:</label>
       <input [(ngModel)]="stadium.streetAndNumber" name="streetAndNumber"
-             class="form-control">
+             class="form-control"
+             #streetAndNumber="ngModel"
+             required
+             minlength="7"
+             maxlength="24"
+      >
     </div>
+
+    <div *ngIf="streetAndNumber.invalid && (streetAndNumber.dirty || streetAndNumber.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="streetAndNumber.errors.required">
+        A street is required.
+      </div>
+      <div *ngIf="streetAndNumber.errors.minlength">
+        A street must be at least 7 characters long.
+      </div>
+      <div *ngIf="streetAndNumber.errors.maxlength">
+        A street's name and number cannot be longer than 24 characters.
+      </div>
+    </div>
+
     <div class="form-group">
       <label>ZIP:</label>
       <input [(ngModel)]="stadium.plz" name="plz"
-             class="form-control">
+             class="form-control"
+             #plz="ngModel"
+             required
+             minlength="4"
+             maxlength="10"
+              pattern="[0-9]*">
     </div>
+
+    <div *ngIf="plz.invalid && (plz.dirty || plz.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="plz.errors.required">
+        A ZIP is required.
+      </div>
+      <div *ngIf="plz.errors.minlength">
+        A ZIP must be at least 4 characters long.
+      </div>
+      <div *ngIf="plz.errors.maxlength">
+        A ZIP cannot be longer than 10 characters.
+      </div>
+      <div *ngIf="plz.errors.pattern">
+        Only numbers are allowed.
+      </div>
+    </div>
+
+
     <div class="form-group">
       <label>BuildDate:</label>
-      <input [(ngModel)]="stadium.buildDate" name="buildDate"
-             class="form-control">
+      <input type="date" [(ngModel)]="stadium.buildDate" name="buildDate"
+             #buildDate="ngModel"
+             useValueAsDate
+             required
+              >
     </div>
-    <button class="btn btn-default" click="saveStadium()">Save</button>
+
+    <div *ngIf="buildDate.invalid && (buildDate.dirty || buildDate.touched)"
+         class="alert alert-danger">
+      <div *ngIf="buildDate.errors.required">
+        A builddate is required.
+      </div>
+
+    </div>
+
+
+    <button class="btn btn-default" (click)="saveStadium()">Save</button>
 
   </form>
 

@@ -29,18 +29,7 @@ export class StadiumComponent implements OnInit {
 
   }
 
-  saveStadium(): void {
-    this.stadiumService.save(this.selectedStadium).subscribe(
-      player => {
-        this.selectedStadium = player;
-        this.message = "Erfolgreich gespeichert!";
-      },
-      errResponse => {
-        console.error('Fehler beim Speichern', errResponse);
-        this.message = "Fehler beim Speichern: ";
-      }
-    );
-  }
+
 
 
 
@@ -76,4 +65,6 @@ export class StadiumComponent implements OnInit {
   select(s:Stadium): void{
     this.selectedStadium = s;
   }
+
+
 }

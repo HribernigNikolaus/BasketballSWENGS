@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
 
-<div
-  class="card"
-  [ngStyle]="{'background-color':(selected) ? 'rgb(204, 197, 185)' : 'white' }">
 
-  <div class="header">
+  <div class='md-padding' layout="row" flex>
+    <div layout="row" flex>
+      <div class="parent" layout="column"  flex>
+
     <h2 class="title">{{item.name}}</h2>
-  </div>
-  <div class="content">
+
     <ng-content select=".top"></ng-content>
 
     <p> Land: {{item.land}}</p>
@@ -28,8 +20,6 @@
       <a [routerLink]="['team', team.id]">{{team.name}}</a>
     </p>
 
-
-    <ng-content select=".bottom"></ng-content>
     <p>
       <button
         class="btn btn-default"
@@ -42,7 +32,11 @@
        [routerLink] = "['/stadium-edit', item.id, { showDetails: true }]">
       Edit
     </a>
+
+    </div>
   </div>
+  </div>
+
 
 <!--  <form *ngIf="stadium">
 
@@ -105,6 +99,4 @@
 
   </form>
 -->
-</div>
-</body>
-</html>
+
