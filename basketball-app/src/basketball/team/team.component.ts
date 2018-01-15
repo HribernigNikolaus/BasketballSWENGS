@@ -16,7 +16,9 @@ export class TeamComponent implements OnInit {
   players : Array<Player>;
   stadium : Stadium;
   league : League;
+  allTeams:Array<Team> = [];
 
+  basket: object = {};
   selectedTeam: Team;
 
   message:string;
@@ -41,6 +43,11 @@ export class TeamComponent implements OnInit {
     );
   }
 
+  showAllTeams(): void {
+    this.teamService.findAll()
+      .then(teams => this.allTeams = teams)
+      .catch(err=>console.log(err))
+  }
   select(t:Team): void{
     this.selectedTeam = t;
   }

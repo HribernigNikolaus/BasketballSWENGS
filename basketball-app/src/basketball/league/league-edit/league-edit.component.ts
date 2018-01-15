@@ -37,7 +37,7 @@ export class LeagueEditComponent implements OnInit {
       }
     )
 
-    this.editForm = this.fb.group({
+/*    this.editForm = this.fb.group({
       name: [],
       fullName: [],
       teamCount: [],
@@ -45,7 +45,7 @@ export class LeagueEditComponent implements OnInit {
      // teams : [],
 
     })
-
+*/
  /* Filling the form with values from db?
     this.editForm.patchValue({
         name: this.league.name,
