@@ -1,18 +1,15 @@
 <div class="card">
   <div class="header">
-    <h2 class="title">All Leagues</h2>
+    <h2 class="title">Leagues</h2>
   </div>
   <div class="content">
     <form>
       <div class="form-group">
-        <button
-          (click)="showAllLeagues()"
-          class="btn btn-default">show All Leagues</button>
-
-        <a class="btn btn-default"
-           [routerLink] = "['/league-create']">
-          Add New League
-        </a>
+        <a [routerLink]="['league-create']">Create a new League</a>
+      </div>
+    </form>
+  </div>
+</div>
  <!-- Reaktive Suchfunktion //TODO: reaktive suchfunktion
 
         <input type="search"
@@ -24,14 +21,6 @@
           <li *ngFor="let search of searches">{{ search }}</li>
         </ul>
         -->
-      </div>
-    </form>
-  </div>
-</div>
-
-
-
-
 
 <div class="row">
   <div *ngFor="let l of allLeagues" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -39,6 +28,7 @@
       [item]="l"
       [selected]="basket[l.id]" (selectedChange)="basket[l.id] = $event">
       <pre>{{ l | json }}</pre>
+
       <h3 class="top"></h3>
     </league-card>
   </div>
