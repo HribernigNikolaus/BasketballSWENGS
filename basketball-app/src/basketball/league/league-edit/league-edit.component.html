@@ -12,47 +12,56 @@
 
 
   <div class="form-group">
-<!--
+
   <form *ngIf="league">
-    <div *ngif="league.id" class="form-group">
+    <div *ngIf="league.id" class="form-group">
       <label>ID: </label>
-      <input [(ngModel)]="league.id" name="id" class="form-control">
+      <input [(ngModel)]="league.id" disabled name="id" class="form-control">
     </div>
 
-  <div *ngif="league.name" class="form-group">
+  <div *ngIf="league.name" class="form-group">
     <label>Name: </label>
     <input [(ngModel)]="league.name" name="name" class="form-control">
   </div>
 
-  <div *ngif="league.fullName" class="form-group">
+  <div *ngIf="league.fullName" class="form-group">
     <label>Full Name: </label>
     <input [(ngModel)]="league.fullName" name="fullName" class="form-control">
   </div>
 
-  <div *ngif="league.land" class="form-group">
+  <div *ngIf="league.land" class="form-group">
     <label>Land: </label>
     <input [(ngModel)]="league.land" name="land" class="form-control">
   </div>
 
-  <div *ngif="league.teamCount" class="form-group">
+  <div *ngIf="league.teamCount" class="form-group">
     <label>Team Count :</label>
     <input [(ngModel)]="league.teamCount" name="teamCount" class="form-control">
   </div>
 
-  <div *ngif="league.foundationYear" class="form-group">
+  <div *ngIf="league.foundationYear" class="form-group">
     <label>Foundation Year: </label>
     <input [(ngModel)]="league.foundationYear" name="foundationYear" class="form-control">
   </div>
- <!-- <div class="form-group">
+
+
+ <!-- Edit geht mal Ohne Team ausgabe
+
+    <div *ngFor="let team of league.teams" class="form-group">
+      <input [(ngModel)]="team.name" name="name" class="form-control">
+    </div>
+
+<!--  <div class="form-group">
     <label>Teams: </label>
     <input [(ngModel)]="league.teams" name="teams"
            class="form-control">
   </div>
 
+  //TODO: saveLeague not working yet-->
 
   <button class="btn btn-default" (click)="saveLeague()">Save</button>
 
-</form> -->
+</form>
 </div>
 </div>
 </body>

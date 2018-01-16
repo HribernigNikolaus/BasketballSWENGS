@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {League} from "../../entities/league";
 import {LeagueService} from "../league-service/league.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'league-edit',
@@ -22,6 +22,7 @@ export class LeagueEditComponent implements OnInit {
     private route: ActivatedRoute,
     private leagueService: LeagueService,
     private fb: FormBuilder,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -62,8 +63,9 @@ export class LeagueEditComponent implements OnInit {
     this.leagueService.save(this.league).subscribe(
       league => {
         this.league = league;
+        this.router.navigate(['/league']);
         this.errors = 'Saving was successful!';
-      },
+              },
       err=> { this.errors = 'Error saving data'; }
     );
   }
