@@ -19,7 +19,7 @@
     <p> Player-No.: #{{item.playerNumber}}</p>
 
     <p> Team: {{item.team}}</p>
-      <a [routerLink]="['team', this.id]">{{this.name}}</a>
+    <a [routerLink]="['team', this.id]">{{this.name}}</a>
 
     <p> Marketvalue: {{item.marketValue}}</p>
     <p> Height: {{item.height}}</p>
@@ -40,51 +40,51 @@
       Edit
     </a>
   </div>
-<!--
+  <!--
 
-  <form *ngIf="player">
+    <form *ngIf="player">
 
-    <div class="form-group">
-      <label>Number:</label>
-      <input [(ngModel)]="player.playerNumber" name="number" class="form-control">
-    </div>
+      <div class="form-group">
+        <label>Number:</label>
+        <input [(ngModel)]="player.playerNumber" name="number" class="form-control">
+      </div>
 
-    <div class="form-group">
-      <label>Firstname:</label>
-      <input [(ngModel)]="player.firstName" name="firstName"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Lastname:</label>
-      <input [(ngModel)]="player.lastName" name="lastName"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Team:</label>
-      <input [(ngModel)]="player.team" name="team"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Marketvalue:</label>
-      <input [(ngModel)]="player.marketValue" name="marketValue"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Height:</label>
-      <input [(ngModel)]="player.height" name="height"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Birthdate:</label>
-      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
-             class="form-control">
-    </div>
+      <div class="form-group">
+        <label>Firstname:</label>
+        <input [(ngModel)]="player.firstName" name="firstName"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Lastname:</label>
+        <input [(ngModel)]="player.lastName" name="lastName"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Team:</label>
+        <input [(ngModel)]="player.team" name="team"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Marketvalue:</label>
+        <input [(ngModel)]="player.marketValue" name="marketValue"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Height:</label>
+        <input [(ngModel)]="player.height" name="height"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Birthdate:</label>
+        <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+               class="form-control">
+      </div>
 
-    <button class="btn btn-default" click="savePlayer()">Save</button>
+      <button class="btn btn-default" click="savePlayer()">Save</button>
 
-  </form>
+    </form>
 
-  -->
+    -->
 
 </div>
 </body>

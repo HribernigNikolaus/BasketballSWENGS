@@ -38,14 +38,14 @@ export class PlayerComponent implements OnInit {
     );
   }
 
-/*  showAllPlayers(): void {
-    this.playerService.findAll().subscribe(
-      (players:Player[])=>{
-        this.allPlayers = players;},
-      (errResp) =>{console.error("Loading failed", errResp)}
-      );
-  }
-*/
+  /*  showAllPlayers(): void {
+      this.playerService.findAll().subscribe(
+        (players:Player[])=>{
+          this.allPlayers = players;},
+        (errResp) =>{console.error("Loading failed", errResp)}
+        );
+    }
+  */
   showAllPlayers(): void {
     this.playerService.findAll()
       .then(player => this.allPlayers = player)

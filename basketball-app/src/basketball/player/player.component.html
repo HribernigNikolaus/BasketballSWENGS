@@ -4,39 +4,46 @@
   </div>
   <div class="content">
     <form>
-    <!--  <div class="form-group">
+      <!--  <div class="form-group">
 
-        <button
-          (click)="search()"
-          class="btn btn-default">Search</button>
+          <button
+            (click)="search()"
+            class="btn btn-default">Search</button>
 
-      </div>
-      -->
+        </div>
+        -->
       <div class="form-group">
         <button
           (click)="showAllPlayers()"
           class="btn btn-default">show All Players</button>
       </div>
+
+      <a class="btn btn-default"
+         [routerLink] = "['/player-create']">
+        Create a new Player
+      </a>
+
+
+
+      <div class="row">
+        <div *ngFor="let p of allPlayers" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <player-card
+            [item]="p"
+            [selected]="basket[p.id]" (selectedChange)="basket[p.id] = $event">
+            <pre>{{ f | json }}</pre>
+            <h3 class="top"></h3>
+          </player-card>
+
+        </div>
+      </div>
+
+      <!--
+      <div class="card">
+        <div class="content">
+          <pre>{{ basket | json }}</pre>
+        </div>
+      </div>
+      -->
     </form>
   </div>
 </div>
-
-<div class="row">
-  <div *ngFor="let p of allPlayers" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-    <player-card
-      [item]="p"
-      [selected]="basket[p.id]" (selectedChange)="basket[p.id] = $event">
-      <pre>{{ f | json }}</pre>
-      <h1 class="top">Player</h1>
-    </player-card>
-
-  </div>
-</div>
-
-<!--
-<div class="card">
-  <div class="content">
-    <pre>{{ basket | json }}</pre>
-  </div>
-</div>
--->
