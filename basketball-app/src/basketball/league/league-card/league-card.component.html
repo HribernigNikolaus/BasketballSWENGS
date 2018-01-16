@@ -17,13 +17,14 @@
     <ng-content select=".top"></ng-content>
     <p> Full name: {{item.fullName}}</p>
     <p> Land: {{item.land}}</p>
-    <p *ngFor="let team of item.team">
-      <label>Teams: </label>
-      <a [routerLink]="['team', team.id]">{{team.name}}</a>
-    </p>
-
     <p> TeamCount: {{item.teamCount}}</p>
     <p> Foundation Year: {{item.foundationYear}}</p>
+    <p>Teams: </p>
+
+    <p *ngFor="let team of item.team">
+      <label> </label>
+      <a [routerLink]="['team', team.id]">{{team.name}}</a>
+    </p>
 
   </div>
   <div class = "bottom">

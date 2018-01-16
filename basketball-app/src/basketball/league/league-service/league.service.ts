@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {League} from "../../entities/league";
 import {Observable} from "rxjs/Observable";
-import {Stadium} from "../../entities/stadium";
 
 @Injectable()
 export class LeagueService{
@@ -21,7 +20,7 @@ export class LeagueService{
   }
 
   save(league:League): Observable<League>{
-    let url= 'http://localhost:8080/leagues'
+    let url= 'http://localhost:8080/leagues'+league.id;
     let headers = new HttpHeaders()
       .set('Accept', 'application/json');
     return this.http.post<League>(url,league, {headers});
@@ -29,7 +28,7 @@ export class LeagueService{
 
   findById(id: string): Observable<League>{
 
-    const url = 'http://localhost:8080/leagues';
+    const url = 'http://localhost:8080/leagues'+id;
     const params = new HttpParams()
       .set('id', id);
     const headers = new HttpHeaders()

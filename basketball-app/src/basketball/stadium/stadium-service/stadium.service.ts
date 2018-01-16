@@ -23,20 +23,18 @@ export class StadiumService{
 
 
   save(stadium:Stadium): Observable<Stadium>{
-    let url= 'http://localhost:8080/stadiums'
+    let url= 'http://localhost:8080/stadiums/'+stadium.id;
     let headers = new HttpHeaders()
-      .set('Accept', 'application/json');
-    return this.http.post<Stadium>(url,stadium,{headers});
+      .set('Accept', 'application/json').set('Content-Type', 'application/json');
+    return this.http.put<Stadium>(url,stadium,{headers});
   }
 
   findById(id: string): Observable<Stadium>{
 
-    const url = 'http://localhost:8080/stadiums';
-    const params = new HttpParams()
-      .set('id', id);
+    const url = 'http://localhost:8080/stadiums/'+id;
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
-    return this.http.get<Stadium>(url, {params,headers});
+    return this.http.get<Stadium>(url, {headers});
   }
 
 }

@@ -19,9 +19,14 @@
     <p> Hometown: {{item.hometown}}</p>
     <p> Startdate: {{item.startDate}}</p>
     <p> Mascot: {{item.mascot}}</p>
-    <p> Players: {{item.players}}</p>
-    <p> Stadium: {{item.stadium }}</p>
-    <p> League: {{item.league }}</p>
+   <p *ngFor="let player of item.player">
+      <label>Players: </label>
+      <a [routerLink]="['player', player.id]">{{player.firstName}} {{player.lastName}}</a>
+    </p>
+
+   <!-- not working - cannot read property 'name' of 'undefined'
+    <p> Stadium: {{item.stadium.name }}</p>
+    <p> League: {{item.league.name }}</p>-->
 
 
     <ng-content select=".bottom"></ng-content>
@@ -38,7 +43,7 @@
       Edit
     </a>
   </div>
-
+<!--
   <form *ngIf="team">
 
     <div class="form-group">
@@ -85,7 +90,7 @@
     <button class="btn btn-default" click="saveTeam()">Save</button>
 
   </form>
-
+-->
 </div>
 </body>
 </html>

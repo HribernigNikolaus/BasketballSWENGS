@@ -37,56 +37,59 @@
   -->
     <form *ngIf="stadium">
 
-      <div class="form-group">
+      <div *ngIf="stadium.id" class="form-group">
         <label>Id:</label>
         <input [(ngModel)]="stadium.id" name="id" class="form-control">
       </div>
 
-      <div class="form-group">
+      <div *ngIf="stadium.name" class="form-group">
         <label>Name:</label>
         <input [(ngModel)]="stadium.name" name="name"
                class="form-control">
       </div>
 
-      <div class="form-group">
+      <div *ngIf="stadium.streetAndNumber" class="form-group">
         <label>Street:</label>
         <input [(ngModel)]="stadium.streetAndNumber" name="streetAndNumber"
                class="form-control">
       </div>
-      <div class="form-group">
+      <div *ngIf="stadium.plz" class="form-group">
         <label>ZIP:</label>
         <input [(ngModel)]="stadium.plz" name="plz"
                class="form-control">
       </div>
-      <div class="form-group">
+      <div *ngIf="stadium.city" class="form-group">
         <label>City:</label>
         <input [(ngModel)]="stadium.city" name="city"
                class="form-control">
       </div>
-      <div class="form-group">
+      <div *ngIf="stadium.land" class="form-group">
         <label>Land:</label>
         <input [(ngModel)]="stadium.land" name="land"
                class="form-control">
       </div>
-      <div class="form-group">
+      <div *ngIf="stadium.buildDate" class="form-group">
         <label>Date:</label>
         <input [(ngModel)]="stadium.buildDate" name="buildDate"
                class="form-control">
       </div>
 
-      <div class="form-group">
-        <label>Teams:</label>
-        <input [(ngModel)]="stadium.teams" name="teams"
-               class="form-control">
-      </div>
+      <!--<div *ngIf="stadium.teams" class="form-group">-->
+        <p *ngFor="let team of stadium.team">
+          <label>Teams: </label>
+          <input [(ngModel)]="team.name" name="teams"
+                 class="form-control">
+        </p>
+     <!-- </div> -->
 
-      <div class="form-group">
+      <div *ngIf="stadium.visitorLimit" class="form-group">
         <label>Visitorlimit:</label>
         <input [(ngModel)]="stadium.visitorLimit" name="visitorLimit"
                class="form-control" required>
       </div>
 
       <button class="btn btn-default" (click)="saveStadium()">Save</button>
+
 
     </form>
   </div>

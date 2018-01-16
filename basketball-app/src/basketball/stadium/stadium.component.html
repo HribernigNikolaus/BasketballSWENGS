@@ -5,16 +5,8 @@
   <div class="content">
     <form>
       <div class="form-group">
-        <button
-          (click)="showAllStadiums()"
-          class="btn btn-default">Show All Stadiums</button>
+        <a [routerLink]="['stadium-create']">Create a new Stadium</a>
       </div>
-
-      <a class="btn btn-default"
-         [routerLink] = "['/stadium-create']">
-        Add New Stadium
-      </a>
-
     </form>
   </div>
 </div>
@@ -23,14 +15,10 @@
   <div *ngFor="let s of allStadiums" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <stadium-card
       [item]="s"
-      [selected]="basket[s.id]" (selectedChange)="basket[s.id] = $event">
+     [selected]="basket[s.id]" (selectedChange)="basket[s.id] = $event">
       <pre>{{ s | json }}</pre>
+
       <h3 class="top"></h3>
     </stadium-card>
-  </div>
-</div>
-<div class="card">
-  <div class="content">
-    <pre>{{ basket | json }}</pre>
   </div>
 </div>

@@ -17,6 +17,7 @@ export class StadiumCardComponent implements OnInit {
   teams : Array<Team>;
 
   ngOnInit() {
+
   }
 
   select() {

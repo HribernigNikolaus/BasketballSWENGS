@@ -1,11 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
 
+<div
+  class="card"
+  [ngStyle]="{'background-color':(selected) ? 'rgb(204, 197, 185)' : 'white' }">
 
-  <div class='md-padding' layout="row" flex>
-    <div layout="row" flex>
-      <div class="parent" layout="column"  flex>
-
+  <div class="header">
     <h2 class="title">{{item.name}}</h2>
-
+  </div>
+  <div class="content">
     <ng-content select=".top"></ng-content>
 
     <p> Land: {{item.land}}</p>
@@ -20,6 +28,8 @@
       <a [routerLink]="['team', team.id]">{{team.name}}</a>
     </p>
 
+
+    <ng-content select=".bottom"></ng-content>
     <p>
       <button
         class="btn btn-default"
@@ -32,71 +42,8 @@
        [routerLink] = "['/stadium-edit', item.id, { showDetails: true }]">
       Edit
     </a>
-
-    </div>
-  </div>
   </div>
 
-
-<!--  <form *ngIf="stadium">
-
-    <div class="form-group">
-      <label>Id:</label>
-      <input [(ngModel)]="stadium.id" name="id" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Name:</label>
-      <input [(ngModel)]="stadium.name" name="name"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Land:</label>
-      <input [(ngModel)]="stadium.land" name="land"
-             class="form-control">
-    </div>
-
-    <form *ngFor="let t of getTeamsofStadium(stadium)">
-        <div class="form-group">
-        <label>Team Name:</label>
-        <input [(ngModel)]="t.name" name="teamName"
-               class="form-control">
-      </div>
-        <div class="form-group">
-          <label>Team City:</label>
-          <input [(ngModel)]="t.city" name="teamCity"
-                 class="form-control">
-        </div>
-      </form>
-
-    <div class="form-group">
-      <label>City:</label>
-      <input [(ngModel)]="stadium.city" name="city"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Street:</label>
-      <input [(ngModel)]="stadium.streetAndNumber" name="streetAndNumber"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>ZIP:</label>
-      <input [(ngModel)]="stadium.plz" name="plz"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>BuildDate:</label>
-      <input [(ngModel)]="stadium.buildDate" name="buildDate"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Visitorlimit:</label>
-      <input [(ngModel)]="stadium.visitorLimit" name="visitorLimit"
-             class="form-control">
-    </div>
-
-    <button class="btn btn-default" click="savePlayer()">Save</button>
-
-  </form>
--->
-
+</div>
+</body>
+</html>

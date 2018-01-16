@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <h1>I am the Team Component</h1>
-</body>
-</html>
+<div class="card">
+  <div class="header">
+    <h2 class="title">All Teams</h2>
+  </div>
+  <div class="content">
+    <form>
+      <div class="form-group">
+        <button
+          (click)="showAllTeams()"
+          class="btn btn-default">show All Teams</button>
+
+        <a class="btn btn-default"
+           [routerLink] = "['/team-create']">
+          Add New Team
+        </a>
+        <!-- Reaktive Suchfunktion //TODO: reaktive suchfunktion
+
+               <input type="search"
+                      class="form-control"
+                      placeholder="Search Team Name"
+                      [formControl]="searchField">
+               <hr/>
+               <ul>
+                 <li *ngFor="let search of searches">{{ search }}</li>
+               </ul>
+               -->
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="row">
+  <div *ngFor="let l of allTeams" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <team-card
+      [item]="l"
+      [selected]="basket[l.id]" (selectedChange)="basket[l.id] = $event">
+      <pre>{{ l | json }}</pre>
+      <h3 class="top"></h3>
+    </team-card>
+  </div>
+</div>
+
+
