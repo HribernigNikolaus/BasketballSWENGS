@@ -1,16 +1,14 @@
 import {Stadium} from "../../entities/stadium";
 import {StadiumService} from "../stadium-service/stadium.service";
-import {Component, OnInit, ViewEncapsulation} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
-import {StadiumValidationDirective} from "../../../shared/validation/stadium-validation.directive";
-
 
 @Component({
   selector: 'stadium-create',
   templateUrl: './stadium-create.component.html',
   styleUrls: ['./stadium-create.component.css'],
-  encapsulation: ViewEncapsulation.None
+
 })
 export class StadiumCreateComponent implements OnInit {
 
@@ -34,7 +32,7 @@ export class StadiumCreateComponent implements OnInit {
         this.id = params['id'];
         this.showDetails = params['showDetails'];
 
-        this.stadiumService.findById(this.id).subscribe(
+        this.stadiumService.create(this.id).subscribe(
           stadium => { this.stadium = stadium; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );

@@ -37,4 +37,14 @@ export class StadiumService{
     return this.http.get<Stadium>(url, {headers});
   }
 
+  create(id: string): Observable<Stadium>{
+
+    const url = 'http://localhost:8080/stadiums/';
+    const params = new HttpParams()
+      .set('id', id);
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<Stadium>(url, {params,headers});
+  }
+
 }
