@@ -26,6 +26,7 @@ import {StadiumCardComponent} from "./stadium/stadium-card/stadium-card.componen
 import {ImpressumComponent} from "./impressum/impressum.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import {SharedModule} from "../shared/shared.module";
+import {BrowserModule} from "@angular/platform-browser";
 
 @NgModule({
   imports: [
@@ -33,8 +34,7 @@ import {SharedModule} from "../shared/shared.module";
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-
-
+    BrowserModule,
     RouterModule.forChild(BASKETBALL_ROUTES)
   ],
   declarations: [

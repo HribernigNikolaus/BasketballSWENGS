@@ -28,12 +28,11 @@ export class LeagueService{
 
   findById(id: string): Observable<League>{
 
-    const url = 'http://localhost:8080/leagues'+id;
-    const params = new HttpParams()
-      .set('id', id);
+    const url = 'http://localhost:8080/leagues/'+id;
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
-    return this.http.get<League>(url, {params,headers});
+    return this.http.get<League>(url, {headers});
   }
+
 
 }

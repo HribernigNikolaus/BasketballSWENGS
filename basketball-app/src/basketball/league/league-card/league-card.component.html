@@ -22,70 +22,24 @@
     <p>Teams: </p>
 
     <p *ngFor="let team of item.team">
-      <label> </label>
+      <label>Team:  </label>
       <a [routerLink]="['team', team.id]">{{team.name}}</a>
     </p>
 
-  </div>
-  <div class = "bottom">
     <ng-content select=".bottom"></ng-content>
-
+<p>
       <button
         class="btn btn-default"
         *ngIf="!selected"
         (click)="deselect()">
         Remove
       </button>
-
+</p>
     <a class="btn btn-default"
        [routerLink] = "['/league-edit', item.id, { showDetails: true }]">
       Edit
     </a>
   </div>
-<!--
-  <form *ngIf="league">
-
-    <div class="form-group">
-      <label>Id:</label>
-      <input [(ngModel)]="league.id" name="id" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Name:</label>
-      <input [(ngModel)]="league.name" name="name"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Full Name:</label>
-      <input [(ngModel)]="league.fullName" name="fullName"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Land:</label>
-      <input [(ngModel)]="league.land" name="land"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Teams:</label>
-      <input [(ngModel)]="league.teams" name="teams"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>TeamCount:</label>
-      <input [(ngModel)]="league.teamCount" name="teamCount"
-             class="form-control">
-    </div>
-    <div class="form-group">
-      <label>Foundation Year:</label>
-      <input [(ngModel)]="league.foundation_year" name="foundation_year"
-             class="form-control">
-    </div>
-
-
-    <button class="btn btn-default" click="saveLeague()">Save</button>
-
-  </form>
--->
 </div>
 </body>
 </html>

@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
 import {ImpressumComponent} from "../basketball/impressum/impressum.component";
+import {CommonModule} from "@angular/common";
 
 
 
@@ -31,6 +32,7 @@ import {ImpressumComponent} from "../basketball/impressum/impressum.component";
     FormsModule,
     HttpClientModule,
     BasketballModule,
+    CommonModule,
 
     RouterModule.forRoot(APP_ROUTES, { useHash: true, enableTracing: true})
   ],

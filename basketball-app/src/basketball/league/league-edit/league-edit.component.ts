@@ -1,6 +1,6 @@
+import {Component, OnInit} from "@angular/core";
 import {League} from "../../entities/league";
 import {LeagueService} from "../league-service/league.service";
-import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 

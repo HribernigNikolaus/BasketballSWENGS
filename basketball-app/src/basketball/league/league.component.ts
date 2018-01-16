@@ -32,7 +32,7 @@ export class LeagueComponent implements OnInit {
   constructor (private leagueService:LeagueService) {}
   ngOnInit(){
     this.leagueService.findAll().then(leagues => this.allLeagues = leagues).catch(err=>console.log(err))
-    
+
 /* //TODO: reaktive suchfunktion
     this.searchField = new FormControl();
     this.searchField.valueChanges
