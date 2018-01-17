@@ -28,6 +28,7 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.teamService.findAll().then(teams => this.allTeams = teams).catch(err=>console.log(err))
 
   }
 

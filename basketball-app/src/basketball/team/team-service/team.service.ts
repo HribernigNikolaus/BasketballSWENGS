@@ -25,7 +25,7 @@ export class TeamService{
 
   findById(id: string): Observable<Team>{
 
-    const url = 'http://localhost:8080/teams';
+    const url = 'http://localhost:8080/teams/'+id;
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
     return this.http.get<Team>(url, {headers});
@@ -40,5 +40,6 @@ export class TeamService{
       .set('Accept', 'application/json');
     return this.http.get<Team>(url, {params,headers});
   }
+
 
 }
