@@ -1,3 +1,189 @@
-<p>
-  team-create works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1 class="title">Add a Team</h1>
+  </div>
+  <div class="form-group">
+
+  </div>
+
+  <form *ngIf="team">
+
+
+    <div class="form-group" >
+      <label>Name:</label>
+
+      <input [(ngModel)]="team.name" name="name"
+             class="form-control"
+             #name="ngModel"
+             required
+             minlength="4"
+             maxlength="24"
+      >
+    </div>
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors.maxlength">
+        Name cannot be longer than 24 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Hometown:</label>
+      <input [(ngModel)]="team.city" name="hometown"
+             class="form-control"
+             #hometown="ngModel"
+             required
+             minlength="3"
+             maxlength="24"
+             pattern="[a-zA-Z -]*"
+      >
+    </div>
+
+    <div *ngIf="hometown.invalid && (hometown.dirty || hometown.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="hometown.errors.required">
+        A hometown is required.
+      </div>
+      <div *ngIf="hometown.errors.minlength">
+        A hometown must have at least 3 characters.
+      </div>
+      <div *ngIf="hometown.errors.maxlength">
+        A hometown's name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="hometown.errors.pattern">
+        A hometown's name cannot contain numbers.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>StartDate:</label>
+      <input type="date" [(ngModel)]="team.startDate" name="startDate"
+             class="form-control"
+             #startDate="ngModel"
+             useValueAsDate
+             required
+      >
+    </div>
+
+    <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)"
+         class="alert alert-danger">
+      <div *ngIf="startDate.errors.required">
+        A startdate is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Maskot:</label>
+      <input [(ngModel)]="team.mascot" name="mascot"
+             class="form-control"
+             #mascot="ngModel"
+             required
+             minlength="3"
+             maxlength="24"
+      >
+    </div>
+
+    <div *ngIf="mascot.invalid && (mascot.dirty || mascot.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="mascot.errors.required">
+        A mascot is required.
+      </div>
+      <div *ngIf="mascot.errors.minlength">
+        A mascot must have at least 3 characters.
+      </div>
+      <div *ngIf="mascot.errors.maxlength">
+        A mascot's name cannot be longer than 24 characters.
+      </div>
+    </div>
+
+    <div>
+      <label>Players:</label>
+      <input [(ngModel)]="team.players" name="players"
+             class="form-control"
+             #players="ngModel"
+             required>
+    </div>
+    <div *ngIf="players.invalid && (players.dirty || players.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="players.errors.required">
+        Some Players are required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Stadium:</label>
+      <input [(ngModel)]="team.stadium" name="stadium"
+             class="form-control"
+             #stadium="ngModel"
+             required
+             minlength="7"
+             maxlength="24"
+      >
+    </div>
+
+    <div *ngIf="stadium.invalid && (stadium.dirty || stadium.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="stadium.errors.required">
+        A stadium is required.
+      </div>
+      <div *ngIf="stadium.errors.minlength">
+        A stadium's name must be at least 7 characters long.
+      </div>
+      <div *ngIf="stadium.errors.maxlength">
+        A stadium's name cannot be longer than 24 characters.
+      </div>
+    </div>
+
+ <div class="form-group">
+      <label>League:</label>
+      <input [(ngModel)]="team.league" name="league"
+             class="form-control"
+             #league="ngModel"
+             required
+             minlength="7"
+             maxlength="24"
+      >
+    </div>
+
+    <div *ngIf="league.invalid && (league.dirty || league.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="league.errors.required">
+        A league is required.
+      </div>
+      <div *ngIf="league.errors.minlength">
+        A leagues's name must be at least 7 characters long.
+      </div>
+      <div *ngIf="league.errors.maxlength">
+        A league's name cannot be longer than 24 characters.
+      </div>
+    </div>
+
+
+
+    <button class="btn btn-default" (click)="saveTeam()">Save</button>
+
+  </form>
+
+</div>
+</body>
+</html>

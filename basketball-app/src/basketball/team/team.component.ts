@@ -5,6 +5,7 @@ import {Stadium} from "../entities/stadium";
 import {League} from "../entities/league";
 import {Team} from "../entities/team";
 
+
 @Component({
   selector: 'team',
   templateUrl: './team.component.html'
@@ -51,4 +52,7 @@ export class TeamComponent implements OnInit {
   select(t:Team): void{
     this.selectedTeam = t;
   }
+
+
+
 }
