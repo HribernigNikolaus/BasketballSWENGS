@@ -1,3 +1,199 @@
-<p>
-  player-edit works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1 class="title">Edit a Player</h1>
+  </div>
+  <div class="form-group">
+
+  </div>
+
+  <form *ngIf="player">
+
+    <div class="form-group" >
+
+      <div class="form-group">
+        <label>Playernumber:</label>
+        <input [(ngModel)]="player.playerNumber" name="playerNumber"
+               class="form-control"
+               #playerNumber="ngModel"
+               required
+               pattern="[0-9]*">
+      </div>
+      <div *ngIf="playerNumber.invalid && (playerNumber.dirty || playerNumber.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="playerNumber.errors.required">
+          A PlayerNumber is required.
+        </div>
+        <div *ngIf="playerNumber.errors.pattern">
+          Only numbers are allowed.
+        </div>
+      </div>
+
+
+      <label>Firstname:</label>
+
+      <input [(ngModel)]="player.firstName" name="firstName"
+             class="form-control"
+             #firstName="ngModel"
+             required
+             minlength="3"
+             maxlength="24"
+             pattern="[a-zA-Z -]*"
+      >
+    </div>
+
+    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="firstName.errors.required">
+        A first name is required.
+      </div>
+      <div *ngIf="firstName.errors.minlength">
+        A first name must be at least 3 characters long.
+      </div>
+      <div *ngIf="firstName.errors.maxlength">
+        A first name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="firstName.errors.pattern">
+        A first name cannot contain numbers.
+      </div>
+    </div>
+
+
+    <div>
+      <label>Lastname:</label>
+      <input [(ngModel)]="player.lastName" name="lastName"
+             class="form-control"
+             #lastName="ngModel"
+             required
+             minlength="3"
+             maxlength="24"
+             pattern="[a-zA-Z -]*">
+    </div>
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="lastName.errors.required">
+        A last name is required.
+      </div>
+      <div *ngIf="lastName.errors.minlength">
+        A last name must be at least 3 characters long.
+      </div>
+      <div *ngIf="lastName.errors.maxlength">
+        A last name cannot be longer than 24 characters.
+      </div>
+      <div *ngIf="firstName?.errors?.pattern">
+        A last name cannot contain numbers.
+      </div>
+    </div>
+
+
+    <div class="form-group"><br>
+      <label>Birthdate:</label>
+      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+             class="form-control"
+             #dayOfBirth="ngModel"
+             required
+      >
+    </div>
+
+    <div *ngIf="dayOfBirth.invalid && (dayOfBirth.dirty || dayOfBirth.touched)"
+         class="alert alert-danger">
+      <div *ngIf="dayOfBirth.errors.required">
+        A Birthdate is required.
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+      <label>Marketvalue:</label>
+      <input [(ngModel)]="player.marketValue" name="marketValue"
+             class="form-control"
+             #marketValue="ngModel"
+             required
+             pattern="[0-9]*">
+    </div>
+    <div *ngIf="marketValue.invalid && (marketValue.dirty || marketValue.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="marketValue.errors.required">
+        A Marketvalue is required.
+      </div>
+      <div *ngIf="marketValue.errors.pattern">
+        Only numbers are allowed.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Height:</label>
+      <input [(ngModel)]="player.height" name="height"
+             class="form-control"
+             #height="ngModel"
+             required
+             pattern="[0-9]*">
+    </div>
+    <div *ngIf="height.invalid && (height.dirty || height.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="height.errors.required">
+        A height is required.
+      </div>
+      <div *ngIf="height.errors.pattern">
+        Only numbers are allowed.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Position:</label>
+      <input [(ngModel)]="player.position" name="position"
+             class="form-control"
+             #position="ngModel"
+             required
+      >
+    </div>
+
+    <div *ngIf="position.invalid && (position.dirty || position.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="position.errors.required">
+        A Position is required.
+      </div>
+    </div>
+
+    <!-- irgend wann werde ich ein dropdown mit DB wahlmöglichketien
+
+      TEAM: <select ng-model="team" ng-options="team.id as team.name for team in teams"></select>
+   -->
+    <div class="form-group">
+      <label>Team:</label>
+      <input [(ngModel)]="player.team" name="team"
+             class="form-control"
+             #team="ngModel"
+             required
+      >
+    </div>
+
+    <div *ngIf="team.invalid && (team.dirty || team.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="team.errors.required">
+        A Team is required.
+      </div>
+    </div>
+
+
+    <button class="btn btn-default" (click)="savePlayer()">Save</button>
+
+  </form>
+
+</div>
+</body>
+</html>
