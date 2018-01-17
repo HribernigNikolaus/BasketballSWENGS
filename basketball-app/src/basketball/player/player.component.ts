@@ -22,7 +22,7 @@ export class PlayerComponent implements OnInit {
 
   constructor (private playerService:PlayerService) {}
   ngOnInit(){
-
+    this.playerService.findAll().then(players => this.allPlayers = players).catch(err=>console.log(err))
   }
 
   savePlayer(): void {

@@ -33,6 +33,14 @@ export class PlayerService{
       .set('Accept', 'application/json');
     return this.http.post<Player>(url, player, {headers});
   }
+
+  findById(id: string): Observable<Player>{
+
+    const url = 'http://localhost:8080/players/'+id;
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<Player>(url, {headers});
+  }
   create(id: string): Observable<Player>{
 
     const url = 'http://localhost:8080/players/';
