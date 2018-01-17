@@ -1,3 +1,48 @@
-<p>
-  team-edit works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1 class="title">Team Edit</h1>
+  </div>
+
+
+  <div class="form-group">
+
+    <form *ngIf="team">
+
+      <div *ngIf="team.id" class="form-group">
+        <label>ID: </label>
+        <input [(ngModel)]="team.id" disabled name="id" class="form-control">
+      </div>
+
+      <div *ngIf="team.name" class="form-group">
+        <label>Name: </label>
+        <input [(ngModel)]="team.name" name="name" class="form-control">
+      </div>
+
+      <div *ngIf="team.startDate" class="form-group">
+        <label>Full Name: </label>
+        <input [(ngModel)]="team.startDate" name="startDate" class="form-control">
+      </div>
+
+      <div *ngIf="team.mascot" class="form-group">
+        <label>Land: </label>
+        <input [(ngModel)]="team.mascot" name="mascot" class="form-control">
+      </div>
+
+      <!-- //TODO:  viele lustige spielerauswahl dropdowns
+
+       //TODO: savePlayer not working yet-->
+
+      <button class="btn btn-default" (click)="saveLeague()">Save</button>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>
