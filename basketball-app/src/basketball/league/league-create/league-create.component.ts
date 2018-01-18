@@ -31,7 +31,7 @@ export class LeagueCreateComponent implements OnInit {
         this.id = params['id'];
         this.showDetails = params['showDetails'];
 
-        this.leagueService.findById(this.id).subscribe(
+        this.leagueService.create(this.id).subscribe(
           league => { this.league = league; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );
@@ -48,7 +48,7 @@ export class LeagueCreateComponent implements OnInit {
     })
   }
 
-  saveStadium() {
+  saveLeague() {
     this.leagueService.save(this.league).subscribe(
       league => {
         this.league = league;

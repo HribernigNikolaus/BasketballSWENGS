@@ -15,34 +15,123 @@
     <form *ngIf="league">
 
       <div class="form-group">
-        <label>Name: </label>
+        <label>Name:</label>
+
         <input [(ngModel)]="league.name" name="name"
-               class="form-control">
+               class="form-control"
+               #name="ngModel"
+               required
+               minlength="2"
+               maxlength="5"
+        >
+      </div>
+
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 2 characters long.
+        </div>
+        <div *ngIf="name.errors.maxlength">
+          Name cannot be longer than 4 characters.
+        </div>
       </div>
 
       <div class="form-group">
         <label>Full Name: </label>
         <input [(ngModel)]="league.fullName" name="fullName"
-               class="form-control">
+               class="form-control"
+               #fullName="ngModel"
+               required
+               minlength="4"
+               maxlength="24"
+        >
       </div>
+
+      <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="fullName.errors.required">
+          A full name is required.
+        </div>
+        <div *ngIf="fullName.errors.minlength">
+          A full name must be at least 4 characters long.
+        </div>
+        <div *ngIf="fullName.errors.maxlength">
+          A full name cannot be longer than 24 characters.
+        </div>
+      </div>
+
       <div class="form-group">
         <label>Land: </label>
         <input [(ngModel)]="league.land" name="land"
-               class="form-control">
+               class="form-control"
+                #land="ngModel"
+               required
+               minlength="4"
+               maxlength="24"
+               pattern="[a-zA-Z -]*"
+        >
       </div>
+
+      <div *ngIf="land.invalid && (land.dirty || land.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="land.errors.required">
+          A country is required.
+        </div>
+        <div *ngIf="land.errors.minlength">
+          A country must have at least 4 characters.
+        </div>
+        <div *ngIf="land.errors.maxlength">
+          A country's name cannot be longer than 24 characters.
+        </div>
+        <div *ngIf="land.errors.pattern">
+          A country's name cannot contain numbers.
+        </div>
+      </div>
+
+
       <div class="form-group">
         <label>Team Count :</label>
         <input [(ngModel)]="league.teamCount" name="teamCount"
-               class="form-control">
+               class="form-control"
+               #teamCount="ngModel"
+               required
+               pattern="[0-9]*">
       </div>
+      <div *ngIf="teamCount.invalid && (teamCount.dirty || teamCount.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="teamCount.errors.required">
+          A team count is required.
+        </div>
+        <div *ngIf="teamCount.errors.pattern">
+          Only numbers are allowed.
+        </div>
+      </div>
+
       <div class="form-group">
         <label>Foundation Year: </label>
         <input [(ngModel)]="league.foundationYear" name="foundationYear"
-               class="form-control">
+               class="form-control"
+                #foundationYear="ngModel"
+                required>
+      </div>
+
+      <div *ngIf="foundationYear.invalid && (foundationYear.dirty || foundationYear.touched)"
+           class="alert alert-danger">
+        <div *ngIf="foundationYear.errors.required">
+          A foundationyear is required.
+        </div>
+
       </div>
       <div class="form-group">
         <label>Teams: </label>
-        <select class="form-control">
+        <select class="form-control" [(ngModel)]="league.teams" name="team" #team="ngModel" required>
           <option value="">Select Team</option>
           <option *ngFor="let team of teams"
                   [value]="team.name">
@@ -51,9 +140,17 @@
         </select>
       </div>
 
+      <div *ngIf="team.invalid && (team.dirty || team.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="team.errors.required">
+          A team is required.
+        </div>
+      </div>
 
 
-      <button class="btn btn-default" (click)="saveStadium()">Save</button>
+
+      <button class="btn btn-default" (click)="saveLeague()">Save</button>
 
     </form>
   </div>

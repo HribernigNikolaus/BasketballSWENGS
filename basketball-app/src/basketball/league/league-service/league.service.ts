@@ -34,5 +34,14 @@ export class LeagueService{
     return this.http.get<League>(url, {headers});
   }
 
+  create(id: string): Observable<League>{
+
+    const url = 'http://localhost:8080/leagues/';
+    const params = new HttpParams()
+      .set('id', id);
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<League>(url, {params,headers});
+  }
 
 }
