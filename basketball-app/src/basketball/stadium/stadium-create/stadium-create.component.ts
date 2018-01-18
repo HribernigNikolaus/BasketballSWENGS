@@ -2,7 +2,7 @@ import {Stadium} from "../../entities/stadium";
 import {StadiumService} from "../stadium-service/stadium.service";
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'stadium-create',
@@ -23,7 +23,8 @@ export class StadiumCreateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private stadiumService: StadiumService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -54,9 +55,10 @@ export class StadiumCreateComponent implements OnInit {
   }
 
   saveStadium() {
-    this.stadiumService.save(this.stadium).subscribe(
+    this.stadiumService.createNew(this.stadium).subscribe(
       stadium => {
         this.stadium = stadium;
+        this.router.navigate(['/stadium']);
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }

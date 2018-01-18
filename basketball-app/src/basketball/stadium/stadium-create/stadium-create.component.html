@@ -173,7 +173,7 @@
              class="form-control"
              #plz="ngModel"
              required
-             minlength="4"
+             minlength="3"
              maxlength="10"
               pattern="[0-9]*">
     </div>
@@ -185,7 +185,7 @@
         A ZIP is required.
       </div>
       <div *ngIf="plz.errors.minlength">
-        A ZIP must be at least 4 characters long.
+        A ZIP must be at least 3 characters long.
       </div>
       <div *ngIf="plz.errors.maxlength">
         A ZIP cannot be longer than 10 characters.
@@ -198,11 +198,12 @@
 
     <div class="form-group">
       <label>BuildDate:</label>
-      <input type="date" [(ngModel)]="stadium.buildDate" name="buildDate"
+      <!--<input type="date" [(ngModel)]="stadium.buildDate" name="buildDate"-->
+      <input [(ngModel)]="stadium.buildDate" name="buildDate"
              #buildDate="ngModel"
-             useValueAsDate
              required
-              >
+      >
+
     </div>
 
     <div *ngIf="buildDate.invalid && (buildDate.dirty || buildDate.touched)"

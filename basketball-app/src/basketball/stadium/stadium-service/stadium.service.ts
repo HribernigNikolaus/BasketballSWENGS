@@ -47,4 +47,12 @@ export class StadiumService{
     return this.http.get<Stadium>(url, {params,headers});
   }
 
+  createNew(stadium:Stadium): Observable<Stadium>{
+
+    const url = 'http://localhost:8080/stadiums/';
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.post<Stadium>(url, stadium, {headers});
+  }
+
 }
