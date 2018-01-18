@@ -12,12 +12,12 @@ import {Team} from "../entities/team";
 })
 export class TeamComponent implements OnInit {
   id: number;
-  name : string;
+  name: string;
 
-  players : Array<Player>;
-  stadium : Stadium;
-  league : League;
-  allTeams:Array<Team> = [];
+  players: Array<Player>;
+  stadium: Stadium;
+  league: League;
+  allTeams: Array<Team> = [];
 
   basket: object = {};
   selectedTeam: Team;
@@ -28,7 +28,8 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.teamService.findAll().then(teams => this.allTeams = teams).catch(err=>console.log(err))
+    this.teamService.findAll().
+    then(teams => this.allTeams = teams).catch(err => console.log(err));
 
   }
 

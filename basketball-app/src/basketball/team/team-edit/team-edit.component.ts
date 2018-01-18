@@ -5,6 +5,7 @@ import {LeagueService} from "../../league/league-service/league.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Team} from "../../entities/team";
 import {TeamService} from "../team-service/team.service";
+import {Stadium} from "../../entities/stadium";
 
 @Component({
   selector: 'team-edit',
@@ -17,6 +18,8 @@ export class TeamEditComponent implements OnInit {
   showDetails: string;
   team: Team;
   errors: string;
+  stadium: Stadium;
+  allStadiums: Array<Stadium>;
 
   editForm: FormGroup;
 
@@ -24,7 +27,7 @@ export class TeamEditComponent implements OnInit {
     private route: ActivatedRoute,
     private teamService: TeamService,
     private fb: FormBuilder,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,11 +37,20 @@ export class TeamEditComponent implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.teamService.findById(this.id).subscribe(
-          team => { this.team = team; this.errors=''; },
+          team => { this.team = team; this.errors = ''; },
           err => {this.errors = 'Fehler!'; }
         );
+        this.teamService.findStadium(this.id).subscribe(
+          stadium => {this.stadium = stadium; this.errors  = ''; },
+          err => {this.errors = 'Fehler!';
+          }
+        );
+        this.teamService.findStadiums()
+          .then(stadiums => this.allStadiums = stadiums).catch(err => console.log(err));
+
       }
-    )
+    );
+
 
     /*    this.editForm = this.fb.group({
           name: [],
