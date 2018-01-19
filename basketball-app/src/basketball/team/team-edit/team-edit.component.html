@@ -130,9 +130,9 @@
       <div *ngIf="stadium" class="form-group">
         <label>Stadium:</label>
 
-        <select [(ngModel)]="stadium.name">
+        <select [(ngModel)]="stadium.name" name="stadname">
 
-          <option *ngFor="let stad of allStadiums"[value]="stad.id">{{stad.name}}</option>
+          <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "team.stadium">{{stad.name}}</option>
         </select>
       </div>
 
