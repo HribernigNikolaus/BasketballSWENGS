@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Team} from "../../entities/team";
 import {ActivatedRoute} from "@angular/router";
 import {TeamService} from "../team-service/team.service";
+import {Stadium} from "../../entities/stadium";
 
 @Component({
   selector: 'team-create',
@@ -16,6 +17,9 @@ export class TeamCreateComponent implements OnInit {
 
   team: Team;
   errors: string;
+
+  stadium: Stadium;
+  allStadiums: Array<Stadium>;
 
   teamForm: FormGroup;
 
@@ -35,6 +39,10 @@ export class TeamCreateComponent implements OnInit {
           team => { this.team = team; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );
+
+        this.teamService.findStadiums()
+          .then(stadiums => this.allStadiums = stadiums).catch(err => console.log(err));
+
       }
     )
 
