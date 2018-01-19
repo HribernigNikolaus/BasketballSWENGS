@@ -21,6 +21,7 @@
 
       <input [(ngModel)]="team.name" name="name"
              class="form-control"
+             placeholder="Enter a name..."
              #name="ngModel"
              required
              minlength="4"
@@ -46,6 +47,7 @@
       <label>Hometown:</label>
       <input [(ngModel)]="team.city" name="hometown"
              class="form-control"
+             placeholder="Enter a hometown..."
              #hometown="ngModel"
              required
              minlength="3"
@@ -92,6 +94,7 @@
       <label>Maskot:</label>
       <input [(ngModel)]="team.mascot" name="mascot"
              class="form-control"
+             placeholder="Enter a maskot..."
              #mascot="ngModel"
              required
              minlength="3"
@@ -117,6 +120,7 @@
       <label>Players:</label>
       <input [(ngModel)]="team.players" name="players"
              class="form-control"
+             placeholder="Enter player ..."
              #players="ngModel"
              required>
     </div>
@@ -130,28 +134,13 @@
 
     <div class="form-group">
       <label>Stadium:</label>
-      <input [(ngModel)]="team.stadium" name="stadium"
-             class="form-control"
-             #stadium="ngModel"
-             required
-             minlength="7"
-             maxlength="24"
-      >
+
+      <select [(ngModel)]="allStadiums" name="stad">
+
+        <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "stad.id">{{stad.name}}</option>
+      </select>
     </div>
 
-    <div *ngIf="stadium.invalid && (stadium.dirty || stadium.touched)"
-         class="alert alert-danger">
-
-      <div *ngIf="stadium.errors.required">
-        A stadium is required.
-      </div>
-      <div *ngIf="stadium.errors.minlength">
-        A stadium's name must be at least 7 characters long.
-      </div>
-      <div *ngIf="stadium.errors.maxlength">
-        A stadium's name cannot be longer than 24 characters.
-      </div>
-    </div>
 
  <div class="form-group">
       <label>League:</label>
