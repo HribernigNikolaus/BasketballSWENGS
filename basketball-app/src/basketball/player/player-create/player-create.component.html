@@ -20,6 +20,7 @@
       <div class="form-group">
         <label>Playernumber:</label>
         <input [(ngModel)]="player.playerNumber" name="playerNumber"
+               placeholder="Enter a playernumber..."
                class="form-control"
                #playerNumber="ngModel"
                required
@@ -41,6 +42,7 @@
 
       <input [(ngModel)]="player.firstName" name="firstName"
              class="form-control"
+             placeholder="Enter a firstname..."
              #firstName="ngModel"
              required
              minlength="3"
@@ -71,6 +73,7 @@
       <label>Lastname:</label>
       <input [(ngModel)]="player.lastName" name="lastName"
              class="form-control"
+             placeholder="Enter a lastname..."
              #lastName="ngModel"
              required
              minlength="3"
@@ -97,17 +100,26 @@
 
     <div class="form-group"><br>
       <label>Birthdate:</label>
-      <input type="date" [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+<<<<<<< HEAD
+      <input type="text" [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+             class="form-control"
+             placeholder="13.08.1994"
+=======
+      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+>>>>>>> origin/master
              #dayOfBirth="ngModel"
-             useValueAsDate
              required
+             pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
       >
     </div>
 
     <div *ngIf="dayOfBirth.invalid && (dayOfBirth.dirty || dayOfBirth.touched)"
          class="alert alert-danger">
       <div *ngIf="dayOfBirth.errors.required">
-        A Birthdate is required.
+        A dayOfBirth is required.
+      </div>
+      <div *ngIf="dayOfBirth.errors.pattern">
+        This is no valid date!
       </div>
 
     </div>
@@ -117,6 +129,7 @@
       <label>Marketvalue:</label>
       <input [(ngModel)]="player.marketValue" name="marketValue"
              class="form-control"
+             placeholder="Enter a marketvalue..."
              #marketValue="ngModel"
              required
              pattern="[0-9]*">
@@ -135,6 +148,7 @@
     <div class="form-group">
       <label>Height:</label>
       <input [(ngModel)]="player.height" name="height"
+             placeholder="Enter a height..."
              class="form-control"
              #height="ngModel"
              required
@@ -154,6 +168,7 @@
     <div class="form-group">
       <label>Position:</label>
       <input [(ngModel)]="player.position" name="position"
+             placeholder="Enter a playerposition..."
              class="form-control"
              #position="ngModel"
              required
@@ -174,18 +189,27 @@
    -->
     <div class="form-group">
       <label>Team:</label>
+<<<<<<< HEAD
+      <input [(ngModel)]="player.team" name="team"
+             placeholder="Enter a teamname"
+             class="form-control"
+             #team="ngModel"
+             required
+      >
+=======
       <select [(ngModel)]="this.allTeams.name">
         <option *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
       </select>
+>>>>>>> origin/master
     </div>
 
-    <div *ngIf="team.invalid && (team.dirty || team.touched)"
+   <!--<div *ngIf="team.invalid && (team.dirty || team.touched)"
          class="alert alert-danger">
 
       <div *ngIf="team.errors.required">
         A Team is required.
       </div>
-    </div>
+    </div>-->
 
 
     <button class="btn btn-default" (click)="createPlayer()">Save</button>
