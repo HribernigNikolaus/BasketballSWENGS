@@ -18,12 +18,12 @@
 
     <p> Player-No.: #{{item.playerNumber}}</p>
 
-    <p> Team: {{item.team}}</p>
-    <a [routerLink]="['team', this.id]">{{this.name}}</a>
+    <a [routerLink]="['/team']">Team: {{teamOfPlayer?.name}}</a>
 
-    <p> Marketvalue: {{item.marketValue}}</p>
+
+    <p> Marketvalue: {{item.marketValue}} $</p>
     <p> Height: {{item.height}}</p>
-    <p> Birthdate: {{item.birthDate}}</p>
+    <p> Birthdate: {{item.dayOfBirth}}</p>
 
 
     <ng-content select=".bottom"></ng-content>

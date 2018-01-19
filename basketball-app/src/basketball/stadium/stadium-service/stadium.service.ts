@@ -55,4 +55,10 @@ export class StadiumService{
     return this.http.post<Stadium>(url, stadium, {headers});
   }
 
+  findAllTeams(): Promise<Array<Team>>{
+  let url= 'http://localhost:8080/teams'
+  let headers = new HttpHeaders()
+    .set('Accept', 'application/json');
+  return this.http.get<Array<Team>>(url,{headers}).toPromise().then(teams => teams['_embedded']['teams']);
+}
 }

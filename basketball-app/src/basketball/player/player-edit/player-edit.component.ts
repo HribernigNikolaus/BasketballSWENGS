@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {PlayerService} from "../player-service/player.service";
 import {Player} from "../../entities/player";
+import {Team} from "../../entities/team";
 
 @Component({
   selector: 'player-edit',
@@ -16,6 +17,8 @@ export class PlayerEditComponent implements OnInit {
 
   player: Player;
   errors: string;
+
+  allTeams:Array<Team> = [];
 
   editForm: FormGroup;
 
@@ -40,6 +43,9 @@ export class PlayerEditComponent implements OnInit {
 
       }
     )
+    this.playerService
+      .findAllTeams().then(teams=>this.allTeams = teams)
+      .catch(err => console.log(err));
 
   }
 
