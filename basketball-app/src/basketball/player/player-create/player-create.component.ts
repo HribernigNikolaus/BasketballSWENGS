@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {PlayerService} from "../player-service/player.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Player} from "../../entities/player";
+import {Team} from "../../entities/team";
 
 @Component({
   selector: 'player-create',
@@ -16,6 +17,7 @@ export class PlayerCreateComponent implements OnInit {
 
   player: Player;
   errors: string;
+  allTeams:Array<Team> = [];
 
   playerForm: FormGroup;
 
@@ -39,6 +41,9 @@ export class PlayerCreateComponent implements OnInit {
         );
       }
     )
+
+
+    this.playerService.findAllTeams().then(teams=>this.allTeams = teams).catch(err=>console.log(err))
 
     this.playerForm = this.fb.group({
       id: [],

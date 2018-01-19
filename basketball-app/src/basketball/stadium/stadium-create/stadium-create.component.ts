@@ -3,6 +3,7 @@ import {StadiumService} from "../stadium-service/stadium.service";
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Team} from "../../entities/team";
 
 @Component({
   selector: 'stadium-create',
@@ -19,6 +20,7 @@ export class StadiumCreateComponent implements OnInit {
   errors: string;
 
   stadiumForm: FormGroup;
+  allTeams:Array<Team> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,8 +39,11 @@ export class StadiumCreateComponent implements OnInit {
           stadium => { this.stadium = stadium; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );
+
       }
+
     )
+    this.stadiumService.findAllTeams().then(teams=>this.allTeams = teams).catch(err=>console.log(err))
 
     this.stadiumForm = this.fb.group({
       id: [],

@@ -49,18 +49,22 @@
 
     <div>
       <label>Teams:</label>
-      <input [(ngModel)]="stadium.teams" name="teams"
+      <select [(ngModel)]="this.allTeams.name">
+        <option *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
+      </select>
+
+     <!-- <input [(ngModel)]="stadium.teams" name="teams"
              class="form-control"
               #teams="ngModel"
-              required>
+              required>-->
     </div>
-    <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
+   <!-- <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
          class="alert alert-danger">
 
       <div *ngIf="teams.errors.required">
         A team is required.
       </div>
-    </div>
+    </div>-->
 
 
 

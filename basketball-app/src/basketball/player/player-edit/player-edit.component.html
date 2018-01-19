@@ -172,22 +172,13 @@
 
       TEAM: <select ng-model="team" ng-options="team.id as team.name for team in teams"></select>
    -->
-    <div class="form-group">
+
       <label>Team:</label>
-      <input [(ngModel)]="player.team" name="team"
-             class="form-control"
-             #team="ngModel"
-             required
-      >
-    </div>
 
-    <div *ngIf="team.invalid && (team.dirty || team.touched)"
-         class="alert alert-danger">
+      <select [(ngModel)]="player.team.id">
 
-      <div *ngIf="team.errors.required">
-        A Team is required.
-      </div>
-    </div>
+        <option *ngFor="let team of allTeams"[value]="team.id">{{team.name}}</option>
+      </select>
 
 
     <button class="btn btn-default" (click)="savePlayer()">Save</button>
@@ -197,3 +188,5 @@
 </div>
 </body>
 </html>
+
+{{player|json}}

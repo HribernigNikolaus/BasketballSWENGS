@@ -17,6 +17,7 @@ export class StadiumComponent implements OnInit {
   message:string;
 
   allStadiums:Array<Stadium> = [];
+  allTeams:Array<Team>=[];
 
   basket: object = {
 

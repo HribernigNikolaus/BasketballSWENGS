@@ -97,9 +97,8 @@
 
     <div class="form-group"><br>
       <label>Birthdate:</label>
-      <input type="date" [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
              #dayOfBirth="ngModel"
-             useValueAsDate
              required
       >
     </div>
@@ -174,20 +173,18 @@
    -->
     <div class="form-group">
       <label>Team:</label>
-      <input [(ngModel)]="player.team" name="team"
-             class="form-control"
-             #team="ngModel"
-             required
-      >
+      <select [(ngModel)]="this.allTeams.name">
+        <option *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
+      </select>
     </div>
 
-    <div *ngIf="team.invalid && (team.dirty || team.touched)"
+   <!--<div *ngIf="team.invalid && (team.dirty || team.touched)"
          class="alert alert-danger">
 
       <div *ngIf="team.errors.required">
         A Team is required.
       </div>
-    </div>
+    </div>-->
 
 
     <button class="btn btn-default" (click)="createPlayer()">Save</button>
