@@ -19,6 +19,7 @@
 
         <input [(ngModel)]="league.name" name="name"
                class="form-control"
+               placeholder="Enter a name..."
                #name="ngModel"
                required
                minlength="2"
@@ -43,6 +44,7 @@
       <div class="form-group">
         <label>Full Name: </label>
         <input [(ngModel)]="league.fullName" name="fullName"
+               placeholder="Enter a fullname..."
                class="form-control"
                #fullName="ngModel"
                required
@@ -69,6 +71,7 @@
         <label>Land: </label>
         <input [(ngModel)]="league.land" name="land"
                class="form-control"
+               placeholder="Enter a land..."
                 #land="ngModel"
                required
                minlength="4"
@@ -99,6 +102,7 @@
         <label>Team Count :</label>
         <input [(ngModel)]="league.teamCount" name="teamCount"
                class="form-control"
+               placeholder="Enter a team count..."
                #teamCount="ngModel"
                required
                pattern="[0-9]*">
@@ -118,6 +122,7 @@
         <label>Foundation Year: </label>
         <input [(ngModel)]="league.foundationYear" name="foundationYear"
                class="form-control"
+               placeholder="Enter a foundation year..."
                 #foundationYear="ngModel"
                 required>
       </div>
@@ -142,6 +147,7 @@
 
       <div *ngIf="team.invalid && (team.dirty || team.touched)"
            class="alert alert-danger">
+
 
         <div *ngIf="team.errors.required">
           A team is required.
