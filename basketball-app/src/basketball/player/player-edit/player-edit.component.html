@@ -172,14 +172,30 @@
 
       TEAM: <select ng-model="team" ng-options="team.id as team.name for team in teams"></select>
    -->
+<div class ="form-group" *ngIf="teamOfPlayer">
+      <label>Team:</label>
+      <select [(ngModel)]="teamOfPlayer.id" name="teamname">
+        <option *ngFor="let team of allTeams"[value]="team.id" [selected] = "team.id == teamOfPlayer.id">{{team.name}}</option>
+      </select>
+</div>
+     <!--
+      <div *ngIf="stadium" class="form-group">
+        <label>Stadium:</label>
+
+        <select [(ngModel)]="stadium.id" name="stadname">
+
+          <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "stad.id == stadium.id">{{stad.name}}</option>
+        </select>
+      </div>
+
 
       <label>Team:</label>
 
-      <select [(ngModel)]="player.team.id">
+      <select [(ngModel)]="player.team">
 
         <option *ngFor="let team of allTeams"[value]="team.id">{{team.name}}</option>
       </select>
-
+-->
 
     <button class="btn btn-default" (click)="savePlayer()">Save</button>
 

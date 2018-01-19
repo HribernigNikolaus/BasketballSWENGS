@@ -20,6 +20,8 @@ export class PlayerEditComponent implements OnInit {
 
   allTeams:Array<Team> = [];
 
+  teamOfPlayer:Team;
+
   editForm: FormGroup;
 
   constructor(
@@ -37,26 +39,47 @@ export class PlayerEditComponent implements OnInit {
         //{
         this.showDetails = params['showDetails'];
         this.playerService.findById(this.id).subscribe(
-          player => { this.player = player; this.errors=''; },
-          err => {this.errors = 'Fehler!'; }
+          player => {
+            this.player = player;
+            this.errors = '';
+            this.playerService
+              .findAllTeams().then(teams => this.allTeams = teams)
+              .catch(err => console.log(err));
+
+            this.playerService.findTeamOfPlayer(this.player).subscribe(
+              team => {
+                this.teamOfPlayer = team;
+                this.errors = '';
+              },
+              err => {
+                this.errors = 'Fehler!';
+                console.log("ERRRROOOOOORRRRR")
+              }
+            );
+
+          },
+          err => {
+            this.errors = 'Fehler!';
+          }
         );
 
       }
     )
-    this.playerService
-      .findAllTeams().then(teams=>this.allTeams = teams)
-      .catch(err => console.log(err));
-
   }
 
   savePlayer() {
-    this.playerService.save(this.player).subscribe(
+    this.playerService.saveTeamAndPlayer(this.player, this.teamOfPlayer.id).subscribe(
       player => {
         this.player = player;
+        //console.log(player.team.id);
+        //this.teamOfPlayer.id=player.team.id;
+        //console.log(this.teamOfPlayer.name)
+
         this.router.navigate(['/player']);
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }
+
     );
 
   }

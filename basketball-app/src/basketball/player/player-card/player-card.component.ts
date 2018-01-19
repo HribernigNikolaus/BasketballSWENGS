@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Player} from "../../entities/player";
 import {PlayerService} from "../player-service/player.service";
 import {Team} from "../../entities/team";
+import {Observable} from "rxjs/Observable";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'player-card',
@@ -9,7 +11,7 @@ import {Team} from "../../entities/team";
 })
 export class PlayerCardComponent implements OnInit {
 
-  constructor(private playerService:PlayerService) { }
+  constructor(private playerService:PlayerService, private router:Router) { }
   @Input() item: Player;
   @Input() selected: boolean;
   @Output() selectedChange = new EventEmitter<boolean>();
@@ -30,6 +32,12 @@ export class PlayerCardComponent implements OnInit {
   deselect() {
     this.selected = false;
     this.selectedChange.next(this.selected);
+  }
+
+  deletePlayer(id:string){
+    this.playerService.deletePlayer(id).subscribe(player=>{console.log("Erfolgreich");
+    this.router.navigate(['/players'])
+    },err=>console.error("Error while deleting Player"));
   }
 
 

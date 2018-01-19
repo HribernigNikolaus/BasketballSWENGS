@@ -21,6 +21,8 @@ export class PlayerCreateComponent implements OnInit {
 
   playerForm: FormGroup;
 
+  teamOfPlayer:Team;
+
   constructor(
     private route: ActivatedRoute,
     private playerService: PlayerService,
@@ -39,6 +41,9 @@ export class PlayerCreateComponent implements OnInit {
           player => { this.player = player; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );
+        this.playerService.findTeamByID("1").subscribe(team => { this.teamOfPlayer = team; this.errors = ''; },
+          err => {this.errors = 'Fehler!'; }
+      );
       }
     )
 
@@ -60,25 +65,11 @@ export class PlayerCreateComponent implements OnInit {
     })
   }
 
-  savePlayer() {
-    this.playerService.save(this.player).subscribe(
-      player => {
-        this.player = player;
-        this.errors = 'Saving was successful!';
-      },
-      err=> { this.errors = 'Error saving data'; }
-    );
+  createPlayer() {
+    this.playerService.createPlayer(this.player, this.teamOfPlayer.id);
+
+
   }
-  createPlayer(){
-    console.log(this.player.firstName + " " + this.player.lastName);
-    this.playerService.createPlayer(this.player).subscribe(
-      player => {
-        this.player = player;
-        this.router.navigate(['/player']);
-        this.errors = 'Saving was successful!';
-      },
-      err=> { this.errors = 'Error saving data'; }
-    );
-  }
+
 
 }

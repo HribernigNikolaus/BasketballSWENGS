@@ -27,17 +27,20 @@
 
 
     <ng-content select=".bottom"></ng-content>
-    <p>
+    <!--<p>
       <button
         class="btn btn-default"
         *ngIf="!selected"
         (click)="deselect()">
-        Remove
       </button>
-    </p>
+    </p>-->
     <a class="btn btn-default"
        [routerLink] = "['/player-edit', item.id, { showDetails: true }]">
       Edit
+    </a>
+    <a class="btn btn-default"
+       (click)="deletePlayer(item.id)">
+      Remove
     </a>
   </div>
   <!--
