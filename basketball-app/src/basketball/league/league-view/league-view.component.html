@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+
+
+
+  <div class="form-group">
+
+    <form *ngIf="league">
+
+      <div class="header">
+        <h1 class="title">{{league.name}}</h1>
+      </div>
+
+      <div class="form-group">
+        <label>Full Name: </label>
+        <p>{{league.fullName}}</p>
+      </div>
+
+      <div class="form-group">
+        <label>Country: </label>
+        <p>{{league.land}}</p>
+
+
+      </div>
+
+      <div class="form-group">
+        <label>Team Count :</label>
+        <p>{{league.teamCount}}</p>
+      </div>
+
+      <div class="form-group">
+        <label>Foundation Year: </label>
+        <p>{{league.foundationYear}}</p>
+      </div>
+
+      <div class="form-group">
+      <p *ngFor="let team of league.team">
+        <label>Team:  </label>
+        <a [routerLink]="['team', team.id]">{{team.name}}</a>  //TODO:  'team' needs to be changed to 'team-view' after implementing team-view
+      </p>
+      </div>
+
+
+
+
+      <button class="btn btn-default" >Remove</button>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>
