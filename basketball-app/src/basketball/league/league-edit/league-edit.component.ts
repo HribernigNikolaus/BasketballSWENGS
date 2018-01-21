@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
-import {League} from "../../entities/league";
 import {LeagueService} from "../league-service/league.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
+import {League} from "../../entities/league";
 
 @Component({
   selector: 'league-edit',
@@ -57,9 +57,7 @@ export class LeagueEditComponent implements OnInit {
     )
     */
   }
-
-
-  saveLeague() {
+    saveLeague() {
     this.leagueService.save(this.league).subscribe(
       league => {
         this.league = league;
