@@ -4,6 +4,7 @@ import {FormBuilder} from "@angular/forms";
 import {TeamService} from "../team-service/team.service";
 import {Stadium} from "../../entities/stadium";
 import {Team} from "../../entities/team";
+import {League} from "../../entities/league";
 
 @Component({
   selector: 'team-view',
@@ -18,7 +19,7 @@ export class TeamViewComponent implements OnInit {
   errors: string;
   stadium: Stadium;
   allStadiums: Array<Stadium>;
-
+  league: League;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,6 +46,11 @@ export class TeamViewComponent implements OnInit {
         this.teamService.findStadiums()
           .then(stadiums => this.allStadiums = stadiums).catch(err => console.log(err));
 
+        this.teamService.findLeague(this.id).subscribe(
+          league => {this.league = league; this.errors  = ''; },
+          err => {this.errors = 'Fehler!';
+          }
+        );
       }
     );
 

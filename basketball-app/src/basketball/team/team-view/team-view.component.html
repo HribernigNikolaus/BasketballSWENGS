@@ -36,18 +36,19 @@
       </div>
 
 
-      <div *ngIf="stadium" class="form-group">
+      <div class="form-group">
         <h3><label>Stadium:</label></h3>
-        <p>{{team.stadium}}</p>
-      </div>
 
+        <a [routerLink]="['/stadium-view', stadium.id]">{{stadium.name}}</a>
+
+      </div>
+      <!-- //TODO: check why stadium.id is throwing an "Cannot read property 'id' of undefined error -->
 
       <div class="form-group">
         <h3><label>League:</label></h3>
-        <p>{{team.league}}</p>
-      </div>
-      <button class="btn btn-default">Return</button>
 
+        <a [routerLink]="['/league-view', league.id]">{{league.name}}</a>
+      </div>
     </form>
   </div>
 </div>
