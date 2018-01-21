@@ -35,9 +35,15 @@
         Remove
       </button>
 </p>
+
     <a class="btn btn-default"
        [routerLink] = "['/league-edit', item.id, { showDetails: true }]">
       Edit
+    </a>
+
+    <a class="btn btn-default"
+       [routerLink] = "['/league-view', item.id, { showDetails: true }]">
+      Details
     </a>
   </div>
 </div>
