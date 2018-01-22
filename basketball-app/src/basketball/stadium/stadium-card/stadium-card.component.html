@@ -30,10 +30,18 @@
         Remove
       </button>
     </p>
-    <a class="btn btn-default"
+    <p>
+    <a class="button"
        [routerLink] = "['/stadium-edit', item.id, { showDetails: true }]">
       Edit
     </a>
+    </p>
+    <p>
+    <a class="button"
+       [routerLink] = "['/stadium-view', item.id, { showDetails: true }]">
+      Details
+    </a>
+    </p>
   </div>
 
 </div>

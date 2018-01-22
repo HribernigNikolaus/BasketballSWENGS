@@ -89,13 +89,7 @@ export class StadiumEditComponent implements OnInit {
     this.stadiumService.saveTeamAndStadium(this.stadium, this.teamsOfStadium).subscribe(
       stadium => {
         this.stadium = stadium;
-        //console.log(player.team.id);
-        //this.teamOfPlayer.id=player.team.id;
-        //console.log(this.teamOfPlayer.name)
-
-        //console.log(stadium.teams)
         this.router.navigate(['/stadium']);
-        //console.log("DOONNNNEEE")
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }

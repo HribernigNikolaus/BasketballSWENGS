@@ -1,0 +1,58 @@
+<div class="container3">
+<div class="card">
+
+
+
+  <div class="form-group">
+
+    <form *ngIf="stadium">
+
+      <div class="header">
+        <h1 class="title">{{stadium.name}}</h1>
+      </div>
+
+      <div>
+        <h3><label>Teams:</label></h3>
+        <p>{{stadium.teams}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <h3><label>Visitorlimit:</label></h3>
+        <p>{{stadium.visitorLimit}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Country:</label></h3>
+       <p>{{stadium.land}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>City:</label></h3>
+        <p>{{stadium.city}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Street:</label></h3>
+        <p>{{stadium.streetAndNumber}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>ZIP:</label></h3>
+        <p>{{stadium.plz}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>BuildDate:</label></h3>
+        <p>{{stadium.buildDate}}</p>
+      </div>
+
+
+      <button class="btn btn-default">Remove</button>
+
+
+    </form>
+  </div>
+</div>
+
+</div>

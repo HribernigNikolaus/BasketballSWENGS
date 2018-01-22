@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
 
   <form *ngIf="player">
@@ -42,7 +36,7 @@
 
       <div class="form-group">
         <h3><label>Team:</label></h3>
-        <p>{{player.team}}</p>
+        <p><a [routerLink]="['/team-view']">{{teamOfPlayer?.name}}</a></p>
       </div>
       <button class="btn btn-default">Return</button>
 
@@ -51,6 +45,5 @@
     </div>
   </form>
 </div>
-</body>
-</html>
+</div>
 

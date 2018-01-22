@@ -1,7 +1,8 @@
 # Basketball SWENGS
 
-This Application was realized as part of a study project of the course "Software Engineering Selective" of the degree program "Information Management"  
-at the FH Joanneum Graz. This is the project Folder for the frontend part created by the following team members:
+This Application was realized as part of a study project of the course "Software Engineering Selective" of the degree program  
+"Information Management" at the FH Joanneum Graz. This is the project Folder for the frontend part created by the  
+following team members:
 
 * <a href="https://github.com/SuperCari">Cölestin Carina</a>
 * <a href="https://github.com/fortmuel15">Vanessa Fortmüller</a>
@@ -17,7 +18,8 @@ at the FH Joanneum Graz. This is the project Folder for the frontend part create
 3. [Project planning](#project-planning) 
 4. [Features](#features)
 5. [Special Features](#special-features)
-6. [Planned Tasks after Kick-off VS. Final Version](#planned)
+6. [Planned Tasks after Kick-off VS. Final Version](#planned-tasks-after-kick-off-vs.-final-version)
+7. [Activities](#activities)
 7. [Lessons Learned](#lessons-learned)
 
 
@@ -65,7 +67,8 @@ The dependencies are shown in the ER diagram:
 ![ER - Diagram](projectdocu/ER_Diagram.jpg)
 
 
-Every Teammember has to implement its own entity:   
+Every Teammember has to implement its own entity:  
+   
 **Carina - _"League"_**  
 **Nikolaus - _"Player"_**  
 **Patrick  - _"Team_**  
@@ -73,11 +76,12 @@ Every Teammember has to implement its own entity:
 
 # Project planning
 
-meetings + VCS + whatsapp
+To see the changes and updates happening in our project we used GitHub as working-platform.   
+So it was possible to be up to date all the time and have a focus on the effort. In addition we create  
+a Whatsapp Group for daily communication. Furthermore we had regular meetings to discuss the progress  
+and work together. The Whiteboard and flipchart were important elements to talk about the project-structure and other details... 
 
-=> ./projectdoku/ 
-Tafelbilder von Kick-Off Meeting 
-Datenbank ER Planung 
+![Strukturplan](projectdocu/Strukturplan.jpg)  
 
 # Features
 
@@ -98,7 +102,48 @@ erweiterte Security durch OATH2
 
 
 
-##geplante Tasks nach erstem Meeting
-##Finale Version und unterschiede zur ursprünglich geplanten Version
+# Planned Tasks after Kick-off VS. Final Version
+
+## Kick-off:
+
+**Ideas:**   
+* Backend as proposed  
+* Frontend Pages :  
+    * Home  
+    * League  
+    * Team   
+    * Player  
+    * Stadium  
+* Https keys for backend  
+* User login     
+    * Guests --> Show  
+    * Admin  --> Edit, Create
+    
+## Final Version:
+
+* blablabla  
+    * und nochmal blabla 
+    * net vergessen bla
+        
+
+# Activities
+
+| Carina          	| Vanessa     	    | Niki        	    | Patrick 	        |
+| -----------------	| -----------------	| ----------------	| --------------	|
+| Documentation   	| Design      	    | Datenbanken 	    | Zeug    	        |
+| League - Entity 	| Stadium - Entity 	| Player - Entity	| Teams - Entity    |
+| View Component  	| Formulare   	    | Backend           | Zeug    	        |
+| Presentation      | Validierung       | Foreign Keys      | Zeug              |
+| HTML / CSS        | HTML / CSS      	|                   |         	        |
+| etc.              | etc.         	    | etc.   	        | etc.     	        |
+
+
 
 # Lessons Learned 
+• Zeug  
+• Zeug  
+• Zeug  
+• Zeug  
+• Zeug  
+
+
