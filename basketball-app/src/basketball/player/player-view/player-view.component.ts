@@ -19,6 +19,7 @@ export class PlayerViewComponent implements OnInit {
   errors: string;
 
   allTeams:Array<Team> = [];
+  teamOfPlayer:Team;
 
 
   constructor(
@@ -29,6 +30,7 @@ export class PlayerViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.route.params.subscribe(
       params => {
         this.id = params['id'];

@@ -29,6 +29,7 @@ import {SharedModule} from "../shared/shared.module";
 import {BrowserModule} from "@angular/platform-browser";
 import {LeagueViewComponent} from "./league/league-view/league-view.component";
 import {TeamViewComponent} from "./team/team-view/team-view.component";
+import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";
 /*import {PlayerViewComponent} from "./player/player-view/player-view.component";
 import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";*/
 //TODO: import your Component after uploading them
@@ -61,7 +62,8 @@ import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.componen
     PlayerCardComponent,
     ImpressumComponent,
     LeagueViewComponent,
-    TeamViewComponent/*,
+    TeamViewComponent,
+    StadiumViewComponent/*,
     PlayerViewComponent,
     StadiumViewComponent*/
 

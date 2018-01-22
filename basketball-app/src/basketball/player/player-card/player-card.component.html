@@ -33,10 +33,18 @@
        [routerLink] = "['/player-edit', item.id, { showDetails: true }]">
       Edit
     </a>
+    </p>
+    <p>
     <a class="button"
        (click)="deletePlayer(item.id)">
       Remove
     </a>
+    </p>
+    <p>
+      <a class="button"
+         [routerLink] = "['/player-view', item.id, { showDetails: true }]">
+        Details
+      </a>
     </p>
   </div>
   <!--
@@ -78,10 +86,7 @@
       <button class="btn btn-default" click="savePlayer()">Save</button>
     </form>
     -->
-  <a class="btn btn-default"
-     [routerLink] = "['/player-view', item.id, { showDetails: true }]">
-    Details
-  </a>
+
 
 </div>
 </div>

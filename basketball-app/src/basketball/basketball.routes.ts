@@ -16,6 +16,7 @@ import {ImpressumComponent} from "./impressum/impressum.component";
 import {LeagueViewComponent} from "./league/league-view/league-view.component";
 import {TeamViewComponent} from "./team/team-view/team-view.component";
 import {PlayerViewComponent} from "./player/player-view/player-view.component";
+import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";
 /*import {PlayerViewComponent} from "./player/player-view/player-view.component";
 import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";*/
 //TODO: uncomment your component after updating
@@ -101,11 +102,11 @@ export const BASKETBALL_ROUTES: Routes = [
   {
     path:'player-view/:id',
     component: PlayerViewComponent
-  }/*,
+  },
   {
     path:'stadium-view/:id',
     component: StadiumViewComponent
-  }*/
+  }
   //TODO: uncomment your component after updating
 
 ];
