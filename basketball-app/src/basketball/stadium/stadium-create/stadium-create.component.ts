@@ -21,6 +21,7 @@ export class StadiumCreateComponent implements OnInit {
 
   stadiumForm: FormGroup;
   allTeams:Array<Team> = [];
+  teamOfStadium:Team;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +38,9 @@ export class StadiumCreateComponent implements OnInit {
 
         this.stadiumService.create(this.id).subscribe(
           stadium => { this.stadium = stadium; this.errors=''; },
+          err => {this.errors = 'Fehler!'; }
+        );
+        this.stadiumService.findTeamByID("1").subscribe(team => { this.teamOfStadium = team; this.errors = ''; },
           err => {this.errors = 'Fehler!'; }
         );
 

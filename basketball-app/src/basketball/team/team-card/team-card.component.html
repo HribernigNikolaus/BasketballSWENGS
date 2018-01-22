@@ -12,9 +12,11 @@
     <p> Hometown: {{item.hometown}}</p>
     <p> Startdate: {{item.startDate}}</p>
     <p> Mascot: {{item.mascot}}</p>
-   <p *ngFor="let player of item.player">
-      <label>Players: </label>
-      <a [routerLink]="['player', player.id]">{{player.firstName}} {{player.lastName}}</a>
+
+    <label>Players: </label>
+    <p *ngFor="let player of item.player">
+
+      <a [routerLink]="['/player-view', player.id]">{{player.firstName}} {{player.lastName}}</a>
     </p>
 
    <!-- not working - cannot read property 'name' of 'undefined'
@@ -24,17 +26,16 @@
 
     <ng-content select=".bottom"></ng-content>
     <p>
-      <button
-        class="btn btn-default"
-        *ngIf="!selected"
-        (click)="deselect()">
+      <a
+        class="button">
         Remove
-      </button>
-    </p>
-    <a class="btn btn-default"
+      </a>
+
+    <a class="button"
        [routerLink] = "['/team-edit', item.id, { showDetails: true }]">
       Edit
     </a>
+    </p>
   </div>
 <!--
   <form *ngIf="team">

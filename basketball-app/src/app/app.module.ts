@@ -13,8 +13,10 @@ import {APP_ROUTES} from "./app.routes";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
-import {ImpressumComponent} from "../basketball/impressum/impressum.component";
 import {CommonModule} from "@angular/common";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SharedModule} from "../shared/shared.module";
+
 
 
 
@@ -33,6 +35,9 @@ import {CommonModule} from "@angular/common";
     HttpClientModule,
     BasketballModule,
     CommonModule,
+    BrowserAnimationsModule,
+    SharedModule,
+
 
     RouterModule.forRoot(APP_ROUTES, { useHash: true, enableTracing: true})
   ],

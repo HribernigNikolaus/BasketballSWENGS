@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
   <div class="header">
     <h1 class="title">Team Edit</h1>
@@ -21,6 +15,7 @@
         <input [(ngModel)]="team.name" name="name"
                class="form-control"
                #name="ngModel"
+               placeholder="Enter a name..."
                required
                minlength="4"
                maxlength="24"
@@ -46,6 +41,7 @@
         <input [(ngModel)]="team.hometown" name="hometown"
                class="form-control"
                #hometown="ngModel"
+               placeholder="Enter a city..."
                required
                minlength="3"
                maxlength="24"
@@ -72,9 +68,11 @@
 
       <div class="form-group">
         <label>StartDate:</label>
-        <input  [(ngModel)]="team.startDate" name="startDate"
+        <input type="text" [(ngModel)]="team.startDate" name="startDate"
                class="form-control"
                #startDate="ngModel"
+               placeholder="e.g. 13.08.1994"
+               pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
                required
         >
       </div>
@@ -84,6 +82,9 @@
         <div *ngIf="startDate.errors.required">
           A startdate is required.
         </div>
+        <div *ngIf="startDate.errors.pattern">
+          A date must have the format dd.mm.yyyy
+        </div>
       </div>
 
       <div class="form-group">
@@ -91,6 +92,7 @@
         <input [(ngModel)]="team.mascot" name="mascot"
                class="form-control"
                #mascot="ngModel"
+               placeholder="Enter a mascot..."
                required
                minlength="3"
                maxlength="24"
@@ -116,6 +118,7 @@
         <input [(ngModel)]="team.players" name="players"
                class="form-control"
                #players="ngModel"
+               player = "Choose Players..."
                required>
       </div>
       <div *ngIf="players.invalid && (players.dirty || players.touched)"
@@ -130,7 +133,7 @@
       <div *ngIf="stadium" class="form-group">
         <label>Stadium:</label>
 
-        <select [(ngModel)]="stadium.id" name="stadname">
+        <select [(ngModel)]="stadium.id" name="stadname" class="form-control" required>
 
           <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "stad.id == stadium.id">{{stad.name}}</option>
         </select>
@@ -175,5 +178,4 @@
     </form>
   </div>
 </div>
-</body>
-</html>
+
