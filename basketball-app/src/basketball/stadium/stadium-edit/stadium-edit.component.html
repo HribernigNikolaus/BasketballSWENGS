@@ -35,15 +35,17 @@
     <form #form="ngForm" *ngIf="stadium">
 
 
+
+
       <div class="form-group" >
         <label>Name:</label>
 
         <input [(ngModel)]="stadium.name" name="name"
                class="form-control"
                #name="ngModel"
+               placeholder="Enter a name..."
                required
                minlength="4"
-               maxlength="24"
                pattern="[a-zA-Z -]*"
         >
       </div>
@@ -57,36 +59,31 @@
         <div *ngIf="name.errors.minlength">
           Name must be at least 4 characters long.
         </div>
-        <div *ngIf="name.errors.maxlength">
-          Name cannot be longer than 24 characters.
-        </div>
         <div *ngIf="name.errors.pattern">
           A name cannot contain numbers.
         </div>
       </div>
 
-      <!--<div *ngIf="stadium.teams" class="form-group">-->
-      <div class ="form-group" *ngIf="teamsOfStadium">
+
+      <div class ="form-group">
         <label>Team:</label>
-        <select multiple [(ngModel)]="teamsOfStadium" name="teamname">
+        <select multiple [(ngModel)]="teamsOfStadium" name="teamname" class="form-control" required>
           <option *ngFor="let team of allTeams"[value]="team" [selected] = "team == teamOfStadium">{{team.name}}</option>
         </select>
-      </div><!--
-      <div>
-        <label>Teams:</label>
-        <input [(ngModel)]="stadium.teams" name="teams"
-               class="form-control"
-               #teams="ngModel"
-               required>
       </div>
-      <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
-           class="alert alert-danger">
 
-        <div *ngIf="teams.errors.required">
-          A team is required.
-        </div>
-      </div>-->
-      <!-- </div> -->
+      <!-- <input [(ngModel)]="stadium.teams" name="teams"
+              class="form-control"
+               #teams="ngModel"
+               required>-->
+      <!-- <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
+            class="alert alert-danger">
+
+         <div *ngIf="teams.errors.required">
+           A team is required.
+         </div>
+       </div>-->
+
 
 
       <div class="form-group">
@@ -94,6 +91,7 @@
         <input [(ngModel)]="stadium.visitorLimit" name="visitorLimit"
                class="form-control"
                #visitorLimit="ngModel"
+               placeholder="Enter a visitorLimit..."
                required
                pattern="[0-9]*">
       </div>
@@ -109,13 +107,13 @@
       </div>
 
       <div class="form-group">
-        <label>Land:</label>
+        <label>Country:</label>
         <input [(ngModel)]="stadium.land" name="land"
                class="form-control"
+               placeholder="Enter a country..."
                #land="ngModel"
                required
                minlength="3"
-               maxlength="24"
                pattern="[a-zA-Z -]*"
         >
       </div>
@@ -129,9 +127,7 @@
         <div *ngIf="land.errors.minlength">
           A country must have at least 3 characters.
         </div>
-        <div *ngIf="land.errors.maxlength">
-          A country's name cannot be longer than 24 characters.
-        </div>
+
         <div *ngIf="land.errors.pattern">
           A country's name cannot contain numbers.
         </div>
@@ -142,10 +138,11 @@
         <label>City:</label>
         <input [(ngModel)]="stadium.city" name="city"
                class="form-control"
+               placeholder="Enter a city..."
                #city="ngModel"
                required
                minlength="3"
-               maxlength="24"
+
                pattern="[a-zA-Z -]*"
         >
       </div>
@@ -159,9 +156,7 @@
         <div *ngIf="city.errors.minlength">
           A city must have at least 3 characters.
         </div>
-        <div *ngIf="city.errors.maxlength">
-          A city's name cannot be longer than 24 characters.
-        </div>
+
         <div *ngIf="city.errors.pattern">
           A city's name cannot contain numbers.
         </div>
@@ -171,10 +166,11 @@
         <label>Street:</label>
         <input [(ngModel)]="stadium.streetAndNumber" name="streetAndNumber"
                class="form-control"
+               placeholder="Enter a street..."
                #streetAndNumber="ngModel"
                required
                minlength="7"
-               maxlength="24"
+
         >
       </div>
 
@@ -187,9 +183,7 @@
         <div *ngIf="streetAndNumber.errors.minlength">
           A street must be at least 7 characters long.
         </div>
-        <div *ngIf="streetAndNumber.errors.maxlength">
-          A street's name and number cannot be longer than 24 characters.
-        </div>
+
       </div>
 
       <div class="form-group">
@@ -197,6 +191,7 @@
         <input [(ngModel)]="stadium.plz" name="plz"
                class="form-control"
                #plz="ngModel"
+               placeholder="Enter a zip"
                required
                minlength="3"
                maxlength="10"
@@ -223,11 +218,14 @@
 
       <div class="form-group">
         <label>BuildDate:</label>
-        <input [(ngModel)]="stadium.buildDate" name="buildDate"
-               class="form-control"
+        <!--<input type="date" [(ngModel)]="stadium.buildDate" name="buildDate"-->
+        <input [(ngModel)]="stadium.buildDate" name="buildDate" class="form-control"
                #buildDate="ngModel"
+               placeholder="e.g. 13.08.1994"
                required
+               pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
         >
+
       </div>
 
       <div *ngIf="buildDate.invalid && (buildDate.dirty || buildDate.touched)"
@@ -235,8 +233,12 @@
         <div *ngIf="buildDate.errors.required">
           A builddate is required.
         </div>
+        <div *ngIf="buildDate.errors.pattern">
+          A builddate must have the format dd.mm.yyyy
+        </div>
 
       </div>
+
 
 
       <button class="btn btn-default" [disabled]="!form.valid" (click)="saveStadium()">Save</button>

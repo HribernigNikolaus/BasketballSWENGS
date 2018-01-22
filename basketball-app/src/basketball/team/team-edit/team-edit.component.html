@@ -9,16 +9,17 @@
     <form #form="ngForm" *ngIf="team">
 
 
+
       <div class="form-group" >
         <label>Name:</label>
 
         <input [(ngModel)]="team.name" name="name"
                class="form-control"
-               #name="ngModel"
                placeholder="Enter a name..."
+               #name="ngModel"
                required
                minlength="4"
-               maxlength="24"
+
         >
       </div>
 
@@ -31,20 +32,18 @@
         <div *ngIf="name.errors.minlength">
           Name must be at least 4 characters long.
         </div>
-        <div *ngIf="name.errors.maxlength">
-          Name cannot be longer than 24 characters.
-        </div>
+
       </div>
 
       <div class="form-group">
         <label>Hometown:</label>
         <input [(ngModel)]="team.hometown" name="hometown"
                class="form-control"
+               placeholder="Enter a hometown..."
                #hometown="ngModel"
-               placeholder="Enter a city..."
                required
                minlength="3"
-               maxlength="24"
+
                pattern="[a-zA-Z -]*"
         >
       </div>
@@ -58,9 +57,7 @@
         <div *ngIf="hometown.errors.minlength">
           A hometown must have at least 3 characters.
         </div>
-        <div *ngIf="hometown.errors.maxlength">
-          A hometown's name cannot be longer than 24 characters.
-        </div>
+
         <div *ngIf="hometown.errors.pattern">
           A hometown's name cannot contain numbers.
         </div>
@@ -68,31 +65,32 @@
 
       <div class="form-group">
         <label>StartDate:</label>
-        <input type="text" [(ngModel)]="team.startDate" name="startDate"
+        <input [(ngModel)]="team.startDate" name="startDate"
                class="form-control"
-               #startDate="ngModel"
                placeholder="e.g. 13.08.1994"
-               pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
+               #startDate="ngModel"
                required
+               pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
         >
       </div>
 
       <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)"
            class="alert alert-danger">
         <div *ngIf="startDate.errors.required">
-          A startdate is required.
+          A date is required.
         </div>
-        <div *ngIf="startDate.errors.pattern">
+        <div *ngIf="startDatee.errors.pattern">
           A date must have the format dd.mm.yyyy
         </div>
+
       </div>
 
       <div class="form-group">
         <label>Maskot:</label>
         <input [(ngModel)]="team.mascot" name="mascot"
                class="form-control"
+               placeholder="Enter a maskot..."
                #mascot="ngModel"
-               placeholder="Enter a mascot..."
                required
                minlength="3"
                maxlength="24"
@@ -113,78 +111,27 @@
         </div>
       </div>
 
-      <div class ="form-group" *ngIf="playersOfTeam">
-        <label>Team:</label>
-        <select multiple [(ngModel)]="playersOfTeam" name="teamname">
+      <div>
+        <label>Players:</label>
+        <select multiple [(ngModel)]="playersOfTeam" name="teamname" class="form-control" required>
           <option *ngFor="let player of allPlayers"[value]="player" [selected] = "player == playersOfTeam">{{player.firstName}} {{player.lastName}}</option>
         </select>
-      </div><!--
-      <div *ngIf="players.invalid && (players.dirty || players.touched)"
-           class="alert alert-danger">
+      </div>
 
-        <div *ngIf="players.errors.required">
-          Some Players are required.
-        </div>
-      </div>-->
-
-      <div class ="form-group" *ngIf="stadiumOfTeam">
+      <div class ="form-group" >
         <label>Stadium:</label>
-        <select [(ngModel)]="stadiumOfTeam.id" name="stadiumName">
-          <option *ngFor="let stadium of allStadiums"[value]="stadium.id" [selected] = "stadium.id == stadiumOfTeam.id">{{stadium.name}}</option>
+        <select [(ngModel)]="stadiumOfTeam.id" name="stadiumName" class="form-control" required>
+          <option *ngFor="let stadium of allStadiums"[value]="stadium.id">{{stadium.name}}</option>
         </select>
       </div>
 
-      <div class ="form-group" *ngIf="leagueOfTeam">
+
+      <div class ="form-group" >
         <label>League:</label>
-        <select [(ngModel)]="leagueOfTeam.id" name="leagueName">
-          <option *ngFor="let league of allLeagues"[value]="league.id" [selected] = "league.id == leagueOfTeam.id">{{league.name}}</option>
+        <select [(ngModel)]="leagueOfTeam.id" name="leagueName" class="form-control" required>
+          <option *ngFor="let league of allLeagues"[value]="league.id">{{league.name}}</option>
         </select>
       </div>
-<!--
-
-      <div *ngIf="stadium" class="form-group">
-        <label>Stadium:</label>
-
-        <select [(ngModel)]="stadium.id" name="stadname" class="form-control" required>
-
-          <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "stad.id == stadium.id">{{stad.name}}</option>
-        </select>
-      </div>
-
-
-
-      <div class="form-group">
-        <label>League:</label>
-        <input [(ngModel)]="team.league" name="league"
-               class="form-control"
-               #league="ngModel"
-               required
-               minlength="7"
-               maxlength="24"
-        >
-      </div>
-
-      <div *ngIf="league.invalid && (league.dirty || league.touched)"
-           class="alert alert-danger">
-
-        <div *ngIf="league.errors.required">
-          A league is required.
-        </div>
-        <div *ngIf="league.errors.minlength">
-          A leagues's name must be at least 7 characters long.
-        </div>
-        <div *ngIf="league.errors.maxlength">
-          A league's name cannot be longer than 24 characters.
-        </div>
-      </div>
-      <!-- //TODO:  viele lustige spielerauswahl dropdowns
-
-       //TODO: saveLeague not working yet
-
-       //TODO: Fehlende Daten in Datenbank nachtragen (Hometown,...)-->
-
-
-
       <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague(team)">Save</button>
 
     </form>

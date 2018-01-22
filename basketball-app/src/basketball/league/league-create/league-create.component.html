@@ -65,11 +65,10 @@
         <label>Country: </label>
         <input [(ngModel)]="league.land" name="land"
                class="form-control"
-               placeholder="Enter a land..."
+               placeholder="Enter a country..."
                 #land="ngModel"
                required
                minlength="3"
-               maxlength="24"
                pattern="[a-zA-Z -]*"
         >
       </div>
@@ -99,13 +98,22 @@
                class="form-control"
                placeholder="Enter a foundation year..."
                 #foundationYear="ngModel"
-                required>
+                required
+               pattern="[0-9]*"
+              minlength="4"
+              maxlength="4">
       </div>
 
       <div *ngIf="foundationYear.invalid && (foundationYear.dirty || foundationYear.touched)"
            class="alert alert-danger">
         <div *ngIf="foundationYear.errors.required">
           A foundationyear is required.
+        </div>
+        <div *ngIf="foundationYear.errors.pattern">
+          A foundation year only contains numbers
+        </div>
+        <div *ngIf="foundationYear.errors.minlength">
+          A Year has four characters.
         </div>
 
       </div>

@@ -184,7 +184,7 @@
     </div>-->
     <div class ="form-group" >
       <label>Team:</label>
-      <select [(ngModel)]="teamOfPlayer.id" name="teamname">
+      <select [(ngModel)]="teamOfPlayer.id" name="teamname" class="form-control" required>
         <option *ngFor="let team of allTeams"[value]="team.id">{{team.name}}</option>
       </select>
     </div>

@@ -9,18 +9,19 @@
 
     <form #form="ngForm" *ngIf="league">
 
+
       <div class="form-group">
         <label>Name:</label>
 
         <input [(ngModel)]="league.name" name="name"
                class="form-control"
+               placeholder="Enter a name..."
                #name="ngModel"
                required
                minlength="2"
                maxlength="5"
         >
       </div>
-
 
       <div *ngIf="name.invalid && (name.dirty || name.touched)"
            class="alert alert-danger">
@@ -39,11 +40,11 @@
       <div class="form-group">
         <label>Full Name: </label>
         <input [(ngModel)]="league.fullName" name="fullName"
+               placeholder="Enter a fullname..."
                class="form-control"
                #fullName="ngModel"
                required
                minlength="4"
-               maxlength="40"
         >
       </div>
 
@@ -65,6 +66,7 @@
         <label>Country: </label>
         <input [(ngModel)]="league.land" name="land"
                class="form-control"
+               placeholder="Enter a country..."
                #land="ngModel"
                required
                minlength="3"
@@ -91,12 +93,17 @@
       </div>
 
 
+
       <div class="form-group">
         <label>Foundation Year: </label>
         <input [(ngModel)]="league.foundationYear" name="foundationYear"
                class="form-control"
+               placeholder="Enter a foundation year..."
                #foundationYear="ngModel"
-               required>
+               required
+               pattern="[0-9]*"
+               minlength="4"
+               maxlength="4">
       </div>
 
       <div *ngIf="foundationYear.invalid && (foundationYear.dirty || foundationYear.touched)"
@@ -104,31 +111,22 @@
         <div *ngIf="foundationYear.errors.required">
           A foundationyear is required.
         </div>
+        <div *ngIf="foundationYear.errors.pattern">
+          A foundation year only contains numbers
+        </div>
+        <div *ngIf="foundationYear.errors.minlength">
+          A Year has four characters.
+        </div>
 
       </div>
-      <div class ="form-group" *ngIf="teamsOfLeague">
-        <label>Teams:</label>
+      <div class ="form-group">
+        <label>Team:</label>
         <select multiple [(ngModel)]="teamsOfLeague" name="teamname">
           <option *ngFor="let team of allTeams"[value]="team" [selected] = "team == teamsOfLeague">{{team.name}}</option>
         </select>
       </div>
 
-
- <!-- Edit geht mal Ohne Team ausgabe
-
-    <div *ngFor="let team of league.teams" class="form-group">
-      <input [(ngModel)]="team.name" name="name" class="form-control">
-    </div>
-
-<!--  <div class="form-group">
-    <label>Teams: </label>
-    <input [(ngModel)]="league.teams" name="teams"
-           class="form-control">
-  </div>
-
-  //TODO: saveLeague not working yet-->
-
-  <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague()">Save</button>
+      <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague()">Save</button>
 
 </form>
 </div>

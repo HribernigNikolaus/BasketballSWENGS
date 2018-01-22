@@ -19,7 +19,7 @@
              #name="ngModel"
              required
              minlength="4"
-             maxlength="24"
+
       >
     </div>
 
@@ -32,9 +32,7 @@
       <div *ngIf="name.errors.minlength">
         Name must be at least 4 characters long.
       </div>
-      <div *ngIf="name.errors.maxlength">
-        Name cannot be longer than 24 characters.
-      </div>
+
     </div>
 
     <div class="form-group">
@@ -45,7 +43,7 @@
              #hometown="ngModel"
              required
              minlength="3"
-             maxlength="24"
+
              pattern="[a-zA-Z -]*"
       >
     </div>
@@ -59,9 +57,7 @@
       <div *ngIf="hometown.errors.minlength">
         A hometown must have at least 3 characters.
       </div>
-      <div *ngIf="hometown.errors.maxlength">
-        A hometown's name cannot be longer than 24 characters.
-      </div>
+
       <div *ngIf="hometown.errors.pattern">
         A hometown's name cannot contain numbers.
       </div>
@@ -71,9 +67,22 @@
       <label>StartDate:</label>
       <input [(ngModel)]="team.startDate" name="startDate"
              class="form-control"
+             placeholder="e.g. 13.08.1994"
              #startDate="ngModel"
              required
+             pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
       >
+    </div>
+
+    <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)"
+         class="alert alert-danger">
+      <div *ngIf="startDate.errors.required">
+        A date is required.
+      </div>
+      <div *ngIf="startDatee.errors.pattern">
+        A date must have the format dd.mm.yyyy
+      </div>
+
     </div>
 
     <div class="form-group">
@@ -104,14 +113,14 @@
 
     <div>
       <label>Players:</label>
-        <select multiple [(ngModel)]="playersOfTeam" name="teamname">
+        <select multiple [(ngModel)]="playersOfTeam" name="teamname" class="form-control" required>
           <option *ngFor="let player of allPlayers"[value]="player" [selected] = "player == playersOfTeam">{{player.firstName}} {{player.lastName}}</option>
         </select>
       </div>
 
     <div class ="form-group" >
       <label>Stadium:</label>
-      <select [(ngModel)]="stadiumOfTeam.id" name="stadiumName">
+      <select [(ngModel)]="stadiumOfTeam.id" name="stadiumName" class="form-control" required>
         <option *ngFor="let stadium of allStadiums"[value]="stadium.id">{{stadium.name}}</option>
       </select>
     </div>
@@ -119,7 +128,7 @@
 
     <div class ="form-group" >
       <label>League:</label>
-      <select [(ngModel)]="leagueOfTeam.id" name="leagueName">
+      <select [(ngModel)]="leagueOfTeam.id" name="leagueName" class="form-control" required>
         <option *ngFor="let league of allLeagues"[value]="league.id">{{league.name}}</option>
       </select>
     </div>

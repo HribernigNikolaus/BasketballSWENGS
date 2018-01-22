@@ -11,37 +11,38 @@
 
     <div class="form-group" >
 
-      <div class="form-group">
-        <label>Playernumber:</label>
-        <input [(ngModel)]="player.playerNumber" name="playerNumber"
-               class="form-control"
-               #playerNumber="ngModel"
-               required
-               pattern="[0-9]*">
-      </div>
-      <div *ngIf="playerNumber.invalid && (playerNumber.dirty || playerNumber.touched)"
-           class="alert alert-danger">
-
-        <div *ngIf="playerNumber.errors.required">
-          A PlayerNumber is required.
-        </div>
-        <div *ngIf="playerNumber.errors.pattern">
-          Only numbers are allowed.
-        </div>
-      </div>
-
-
-      <label>Firstname:</label>
-
-      <input [(ngModel)]="player.firstName" name="firstName"
+      <label>Playernumber:</label>
+      <input [(ngModel)]="player.playerNumber" name="playerNumber"
+             placeholder="Enter a playernumber..."
              class="form-control"
-             #firstName="ngModel"
+             #playerNumber="ngModel"
              required
-             minlength="3"
-             maxlength="24"
-             pattern="[a-zA-Z -]*"
-      >
+             pattern="[0-9]*">
     </div>
+    <div *ngIf="playerNumber.invalid && (playerNumber.dirty || playerNumber.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="playerNumber.errors.required">
+        A PlayerNumber is required.
+      </div>
+      <div *ngIf="playerNumber.errors.pattern">
+        Only numbers are allowed.
+      </div>
+    </div>
+
+
+    <label>Firstname:</label>
+
+    <input [(ngModel)]="player.firstName" name="firstName"
+           class="form-control"
+           placeholder="Enter a firstname..."
+           #firstName="ngModel"
+           required
+           minlength="3"
+           maxlength="24"
+           pattern="[a-zA-Z -]*"
+    >
+
 
     <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
          class="alert alert-danger">
@@ -65,6 +66,7 @@
       <label>Lastname:</label>
       <input [(ngModel)]="player.lastName" name="lastName"
              class="form-control"
+             placeholder="Enter a lastname..."
              #lastName="ngModel"
              required
              minlength="3"
@@ -91,17 +93,22 @@
 
     <div class="form-group"><br>
       <label>Birthdate:</label>
-      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
+      <input type="text" [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
              class="form-control"
+             placeholder="13.08.1994"
              #dayOfBirth="ngModel"
              required
+             pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
       >
     </div>
 
     <div *ngIf="dayOfBirth.invalid && (dayOfBirth.dirty || dayOfBirth.touched)"
          class="alert alert-danger">
       <div *ngIf="dayOfBirth.errors.required">
-        A Birthdate is required.
+        A dayOfBirth is required.
+      </div>
+      <div *ngIf="dayOfBirth.errors.pattern">
+        This is no valid date!
       </div>
 
     </div>
@@ -111,6 +118,7 @@
       <label>Marketvalue:</label>
       <input [(ngModel)]="player.marketValue" name="marketValue"
              class="form-control"
+             placeholder="Enter a marketvalue..."
              #marketValue="ngModel"
              required
              pattern="[0-9]*">
@@ -129,6 +137,7 @@
     <div class="form-group">
       <label>Height:</label>
       <input [(ngModel)]="player.height" name="height"
+             placeholder="Enter a height..."
              class="form-control"
              #height="ngModel"
              required
@@ -148,6 +157,7 @@
     <div class="form-group">
       <label>Position:</label>
       <input [(ngModel)]="player.position" name="position"
+             placeholder="Enter a playerposition..."
              class="form-control"
              #position="ngModel"
              required
@@ -166,34 +176,30 @@
 
       TEAM: <select ng-model="team" ng-options="team.id as team.name for team in teams"></select>
    -->
-<div class ="form-group" *ngIf="teamOfPlayer">
+    <!--<div class="form-group">
       <label>Team:</label>
-      <select [(ngModel)]="teamOfPlayer.id" name="teamname">
-        <option *ngFor="let team of allTeams"[value]="team.id" [selected] = "team.id == teamOfPlayer.id">{{team.name}}</option>
+      <select [(ngModel)]="this.allTeams.name">
+        <option *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
       </select>
-</div>
-     <!--
-      <div *ngIf="stadium" class="form-group">
-        <label>Stadium:</label>
-
-        <select [(ngModel)]="stadium.id" name="stadname">
-
-          <option *ngFor="let stad of allStadiums"[value]="stad.id" [selected] = "stad.id == stadium.id">{{stad.name}}</option>
-        </select>
-      </div>
-
-
+    </div>-->
+    <div class ="form-group" >
       <label>Team:</label>
-
-      <select [(ngModel)]="players.team">
-
+      <select [(ngModel)]="teamOfPlayer.id" name="teamname" class="form-control" required>
         <option *ngFor="let team of allTeams"[value]="team.id">{{team.name}}</option>
       </select>
--->
+    </div>
 
-    <button class="btn btn-default" [disabled]="!form.valid" (click)="savePlayer()">Save</button>
+    <!--<div *ngIf="team.invalid && (team.dirty || team.touched)"
+          class="alert alert-danger">
 
-  </form>
+       <div *ngIf="team.errors.required">
+         A Team is required.
+       </div>
+     </div>-->
 
-</div>
-</div>
+     <button class="btn btn-default" [disabled]="!form.valid" (click)="savePlayer()">Save</button>
+
+   </form>
+
+ </div>
+ </div>
