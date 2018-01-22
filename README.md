@@ -26,7 +26,7 @@ following team members:
 # How to set up
 
 **Important:**   
-* Frontend: Before npm start, go in the sub-directory basketball-app (>cd basketball-app))
+* Frontend: Before npm start, go in the sub-directory basketball-app (>cd basketball-app)
 
 ## BasketballApp
 
@@ -122,7 +122,7 @@ erweiterte Security durch OATH2
     
 ## Final Version:
 
-* RESTful Backend as  
+* RESTful Backend  
 * Frontend Pages :  
     * Home  
     * League  
@@ -139,8 +139,8 @@ erweiterte Security durch OATH2
 
 | Carina          	| Vanessa     	    | Niki        	    | Patrick 	        |
 | -----------------	| -----------------	| ----------------	| --------------	|
-| League - Entity   | Stadium - Entity  | Player - Entity 	| Backend  	        |
-| Documentation 	| Design        	| Database       	| Teams - Entity    |
+| League - Entity   | Stadium - Entity  | Player - Entity 	| Teams - Entity  	|
+| Documentation 	| Design        	| Database       	| Backend           |
 | View Component  	| Formulare   	    | Backend           | Search    	    |
 | Presentation      | Validierung       | Foreign Keys      | Security          |
 | HTML / CSS        | HTML / CSS      	| CRUD              | CRUD        	    |
