@@ -13,10 +13,12 @@ import {APP_ROUTES} from "./app.routes";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BasketballModule} from "../basketball/basketball.module";
+import {ImpressumComponent} from "../basketball/impressum/impressum.component";
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "../shared/shared.module";
 
+import { PlayerViewComponent } from '../basketball/player/player-view/player-view.component';
 
 
 
@@ -25,7 +27,8 @@ import {SharedModule} from "../shared/shared.module";
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PlayerViewComponent
 
 
   ],

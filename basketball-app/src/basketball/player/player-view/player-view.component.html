@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+
+  <form *ngIf="player">
+
+    <div class="form-group" >
+
+      <div class="header">
+        <h1 class="title">{{player.firstName}} {{player.lastName}}</h1>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Playernumber:</label></h3>
+        <p>#{{player.playerNumber}} </p>
+      </div>
+
+      <div class="form-group">
+        <h3> <label>Birthdate:</label> </h3>
+        <p> {{player.dayOfBirth}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Marketvalue:</label></h3>
+        <p>{{player.marketValue}} ,-</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Height:</label></h3>
+        <p>{{player.height}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3> <label>Position:</label> </h3>
+        <p>{{player.position}}</p>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Team:</label></h3>
+        <p>{{player.team}}</p>
+      </div>
+      <button class="btn btn-default">Return</button>
+
+
+
+    </div>
+  </form>
+</div>
+</body>
+</html>
+

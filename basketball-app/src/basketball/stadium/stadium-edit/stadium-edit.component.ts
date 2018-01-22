@@ -45,7 +45,7 @@ export class StadiumEditComponent implements OnInit {
               .findAllTeams().then(teams => this.allTeams = teams)
               .catch(err => console.log(err));
 
-            this.stadiumService.findTeamOfStadium(this.stadium).subscribe(
+            /*this.stadiumService.findTeamOfStadium(this.stadium).subscribe(
               team => {
                 this.teamOfStadium = team;
                 this.errors = '';
@@ -54,7 +54,7 @@ export class StadiumEditComponent implements OnInit {
                 this.errors = 'Fehler!';
                 console.log("ERRRROOOOOORRRRR")
               }
-            );
+            );*/
 
           },
           err => {

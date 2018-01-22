@@ -25,7 +25,7 @@
           <player-card
             [item]="p"
             [selected]="basket[p.id]" (selectedChange)="basket[p.id] = $event">
-            <pre>{{ f | json }}</pre>
+            <pre>{{ p | json }}</pre>
             <h3 class="top"></h3>
           </player-card>
 
