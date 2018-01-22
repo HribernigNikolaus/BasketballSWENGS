@@ -66,6 +66,12 @@
       </div>
 
       <!--<div *ngIf="stadium.teams" class="form-group">-->
+      <div class ="form-group" *ngIf="teamsOfStadium">
+        <label>Team:</label>
+        <select multiple [(ngModel)]="teamsOfStadium" name="teamname">
+          <option *ngFor="let team of allTeams"[value]="team" [selected] = "team == teamOfStadium">{{team.name}}</option>
+        </select>
+      </div><!--
       <div>
         <label>Teams:</label>
         <input [(ngModel)]="stadium.teams" name="teams"
@@ -79,7 +85,7 @@
         <div *ngIf="teams.errors.required">
           A team is required.
         </div>
-      </div>
+      </div>-->
       <!-- </div> -->
 
 

@@ -18,7 +18,7 @@ export class StadiumEditComponent implements OnInit {
 
   stadium: Stadium;
   allTeams:Array<Team> = [];
-  teamOfStadium: Team;
+  teamsOfStadium: Array<Team>;
   errors: string;
 
   editForm: FormGroup;
@@ -41,21 +41,21 @@ export class StadiumEditComponent implements OnInit {
           stadium => {
             this.stadium = stadium;
             this.errors = '';
-            this.stadiumService
-              .findAllTeams().then(teams => this.allTeams = teams)
-              .catch(err => console.log(err));
-
-            /*this.stadiumService.findTeamOfStadium(this.stadium).subscribe(
-              team => {
-                this.teamOfStadium = team;
+            this.stadiumService.findTeamsOfStadium(this.stadium).then(
+              teams => {
+                this.teamsOfStadium = teams;
+                this.stadium.teams = teams;
+                //console.log(this.teamsOfStadium);
                 this.errors = '';
-              },
+              }).catch(
               err => {
                 this.errors = 'Fehler!';
                 console.log("ERRRROOOOOORRRRR")
               }
-            );*/
-
+            );
+            this.stadiumService
+              .findAllTeams().then(teams => {this.allTeams = teams; console.log(this.allTeams)})
+              .catch(err => console.log(err));
           },
           err => {
             this.errors = 'Fehler!';
@@ -67,11 +67,35 @@ export class StadiumEditComponent implements OnInit {
   }
 
 
-  /*saveStadium() {
-    this.stadiumService.saveTeamAndStadium(this.stadium, this.teamOfStadium.id).subscribe(
+  saveStadium() {
+    console.log(this.teamsOfStadium)
+    for(let team of this.stadium.teams) {
+      let isFound = false;
+
+      for(let newTeam of this.teamsOfStadium) {
+
+        if (team.id == newTeam.id) {
+          isFound = true;
+          console.log(team)
+
+        }
+      }
+      if(!isFound)
+      {
+        this.stadiumService.deleteTeamsOfStadium(this.stadium, team).subscribe();
+      }
+
+    }
+    this.stadiumService.saveTeamAndStadium(this.stadium, this.teamsOfStadium).subscribe(
       stadium => {
         this.stadium = stadium;
+        //console.log(player.team.id);
+        //this.teamOfPlayer.id=player.team.id;
+        //console.log(this.teamOfPlayer.name)
+
+        //console.log(stadium.teams)
         this.router.navigate(['/stadium']);
+        //console.log("DOONNNNEEE")
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }
@@ -79,6 +103,5 @@ export class StadiumEditComponent implements OnInit {
     );
 
   }
-*/
 }
 

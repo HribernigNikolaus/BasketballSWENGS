@@ -41,17 +41,17 @@
     </div>
 
 
-    <div>
-      <label>Teams:</label>
-      <select [(ngModel)]="this.allTeams.name">
-        <option *ngFor="let team of allTeams" [value]="team.id">{{team.name}}</option>
-      </select>
+      <div class ="form-group">
+        <label>Team:</label>
+        <select multiple [(ngModel)]="teamsOfStadium" name="teamname">
+          <option *ngFor="let team of allTeams"[value]="team" [selected] = "team == teamOfStadium">{{team.name}}</option>
+        </select>
+      </div>
 
      <!-- <input [(ngModel)]="stadium.teams" name="teams"
              class="form-control"
               #teams="ngModel"
               required>-->
-    </div>
    <!-- <div *ngIf="teams.invalid && (teams.dirty || teams.touched)"
          class="alert alert-danger">
 
