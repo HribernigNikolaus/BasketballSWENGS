@@ -1,7 +1,8 @@
 # Basketball SWENGS
 
-This Application was realized as part of a study project of the course "Software Engineering Selective" of the degree program "Information Management"  
-at the FH Joanneum Graz. This is the project Folder for the frontend part created by the following team members:
+This Application was realized as part of a study project of the course "Software Engineering Selective" of the degree program  
+"Information Management" at the FH Joanneum Graz. This is the project Folder for the frontend part created by the  
+following team members:
 
 * <a href="https://github.com/SuperCari">Cölestin Carina</a>
 * <a href="https://github.com/fortmuel15">Vanessa Fortmüller</a>
@@ -75,15 +76,12 @@ Every Teammember has to implement its own entity:
 
 # Project planning
 
-meetings + VCS + whatsapp
-
-=> ./projectdoku/ 
-Tafelbilder von Kick-Off Meeting 
-Datenbank ER Planung 
+To see the changes and updates happening in our project we used GitHub as working-platform.   
+So it was possible to be up to date all the time and have a focus on the effort. In addition we create  
+a Whatsapp Group for daily communication. Furthermore we had regular meetings to discuss the progress  
+and work together. The Whiteboard and flipchart were important elements to talk about the project-structure and other details... 
 
 ![Strukturplan](projectdocu/Strukturplan.jpg)  
-
-
 
 # Features
 
@@ -130,16 +128,15 @@ erweiterte Security durch OATH2
 
 # Activities
 
-| Carina          	| Vanessa     	| Niki        	| Patrick 	|
-| -----------------	| -------------	| -------------	| ---------	|
-| Documentation   	| Design      	| Datenbanken 	| Zeug    	|
-| League - Entity 	| Validierung 	| Backend      	| Zeug    	|
-| View Component  	| Formulare   	| Player        | Zeug    	|
-| Presentation      | Zeug          | Foreign Keys  | Zeug      |
-|                 	|             	| etc.          |         	|
-|                 	|             	|             	|         	|
-|                 	|             	|             	|         	|
-|                 	|             	|             	|         	|
+| Carina          	| Vanessa     	    | Niki        	    | Patrick 	        |
+| -----------------	| -----------------	| ----------------	| --------------	|
+| Documentation   	| Design      	    | Datenbanken 	    | Zeug    	        |
+| League - Entity 	| Stadium - Entity 	| Player - Entity	| Teams - Entity    |
+| View Component  	| Formulare   	    | Backend           | Zeug    	        |
+| Presentation      | Validierung       | Foreign Keys      | Zeug              |
+| HTML / CSS        | HTML / CSS      	|                   |         	        |
+| etc.              | etc.         	    | etc.   	        | etc.     	        |
+
 
 
 # Lessons Learned 
