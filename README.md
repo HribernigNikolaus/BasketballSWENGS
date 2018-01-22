@@ -5,7 +5,7 @@ This Application was realized as part of a study project of the course "Software
 following team members:
 
 * <a href="https://github.com/SuperCari">Cölestin Carina</a>
-* <a href="https://github.com/fortmuel15">Vanessa Fortmüller</a>
+* <a href="https://github.com/fortmuel15">Fortmüller Vanessa</a>
 * <a href="https://github.com/HribernigNikolaus">Hribernig Nikolaus</a>
 * <a href="https://github.com/x-qlusive">Plank Patrick</a>
 
@@ -25,12 +25,14 @@ following team members:
 
 # How to set up
 
+**Important:**   
+* Frontend: Before npm start, go in the sub-directory basketball-app (>cd basketball-app))
 
 ## BasketballApp
 
    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
 
-* ###Development server
+* ### Development server
 
     Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -101,7 +103,6 @@ erweiterte Security durch OATH2
 => nähere Infos nach Fertigstellung
 
 
-
 # Planned Tasks after Kick-off VS. Final Version
 
 ## Kick-off:
@@ -109,7 +110,7 @@ erweiterte Security durch OATH2
 **Ideas:**   
 * Backend as proposed  
 * Frontend Pages :  
-    * Home  
+    * Main  
     * League  
     * Team   
     * Player  
@@ -121,29 +122,39 @@ erweiterte Security durch OATH2
     
 ## Final Version:
 
-* blablabla  
-    * und nochmal blabla 
-    * net vergessen bla
-        
+* RESTful Backend as  
+* Frontend Pages :  
+    * Home  
+    * League  
+    * Team   
+    * Player  
+    * Stadium 
+    * Impressum 
+* Https keys for backend  
+* User login     
+    * Guests --> Show  
+    * Admin  --> Edit, Create 
 
 # Activities
 
 | Carina          	| Vanessa     	    | Niki        	    | Patrick 	        |
 | -----------------	| -----------------	| ----------------	| --------------	|
-| Documentation   	| Design      	    | Datenbanken 	    | Zeug    	        |
-| League - Entity 	| Stadium - Entity 	| Player - Entity	| Teams - Entity    |
-| View Component  	| Formulare   	    | Backend           | Zeug    	        |
-| Presentation      | Validierung       | Foreign Keys      | Zeug              |
-| HTML / CSS        | HTML / CSS      	|                   |         	        |
-| etc.              | etc.         	    | etc.   	        | etc.     	        |
+| League - Entity   | Stadium - Entity  | Player - Entity 	| Backend  	        |
+| Documentation 	| Design        	| Database       	| Teams - Entity    |
+| View Component  	| Formulare   	    | Backend           | Search    	    |
+| Presentation      | Validierung       | Foreign Keys      | Security          |
+| HTML / CSS        | HTML / CSS      	| CRUD              | CRUD        	    |
+| CRUD              | CRUD         	    | Filter  	        | Testdaten         |
+| Testdata etc.     | etc.         	    | etc.   	        | etc.     	        |
 
 
+# Lessons Learned  
 
-# Lessons Learned 
-• Zeug  
-• Zeug  
-• Zeug  
-• Zeug  
-• Zeug  
+* Timemanagement very hard because of
+    * other projects  
+    * because team members are part of different groups - so they have different timetables
+* to read in new topics – very time-comsuming
+* imprecise working – long error diagnostics (typos)
+
 
 
