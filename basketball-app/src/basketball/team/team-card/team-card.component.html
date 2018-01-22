@@ -17,10 +17,23 @@
     <p *ngFor="let player of item.players">
       <a [routerLink]="['/player-view', player.id]">{{player.firstName}} {{player.lastName}}</a>
     </p>
+    <div class="form-group" *ngIf="item.stadium">
+      <label>Stadium:</label>
 
-   <!-- not working - cannot read property 'name' of 'undefined'
-    <p> Stadium: {{item.stadium.name }}</p>
-    <p> League: {{item.league.name }}</p>-->
+      <a [routerLink]="['/stadium-view', item.stadium.id]">{{item.stadium.name}}</a>
+
+    </div>
+    <div class="form-group" *ngIf="item.league">
+      <label>Stadium:</label>
+
+      <a [routerLink]="['/league-view', item.league.id]">{{item.league.name}}</a>
+
+    </div>
+
+
+    <!-- not working - cannot read property 'name' of 'undefined'
+     <p> Stadium: {{item.stadium.name }}</p>
+     <p> League: {{item.league.name }}</p>-->
 
 
     <ng-content select=".bottom"></ng-content>
@@ -92,6 +105,5 @@
 
   </form>
 -->
-</div>
 
 </div>

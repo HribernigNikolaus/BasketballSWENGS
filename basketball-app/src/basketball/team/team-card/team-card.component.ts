@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Team} from "../../entities/team";
 import {TeamService} from "../team-service/team.service";
 import {Player} from "../../entities/player";
+import {Stadium} from "../../entities/stadium";
+import {League} from "../../entities/league";
 
 @Component({
   selector: 'team-card',
@@ -15,6 +17,8 @@ export class TeamCardComponent implements OnInit {
   @Output() selectedChange = new EventEmitter<boolean>();
   playersOfTeam:Array<Player>=[];
   errors:String;
+  stadiumOfTeam:Stadium;
+  leagueOfTeam:League;
 
   ngOnInit() {
     this.teamService.findPlayersOfTeam(this.item).then(

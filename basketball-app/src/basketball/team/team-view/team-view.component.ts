@@ -21,6 +21,7 @@ export class TeamViewComponent implements OnInit {
   stadium: Stadium;
   allPlayers: Array<Player>;
   league: League;
+  playersOfTeam:Array<Player>;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,7 +39,7 @@ export class TeamViewComponent implements OnInit {
         this.teamService.findById(this.id).subscribe(
           team => { this.team = team; this.errors = '';
             this.teamService.findPlayersOfTeam(this.team)
-              .then(stadiums => this.team.players = stadiums).catch(err => console.log(err));},
+              .then(stadiums => this.playersOfTeam = stadiums).catch(err => console.log(err));},
           err => {this.errors = 'Fehler!'; }
         );
         this.teamService.findStadium(this.id).subscribe(
