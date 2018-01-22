@@ -25,6 +25,7 @@ export class TeamService{
     let headers = new HttpHeaders().set('Accepct', 'application/json');
     return this.http.get<Array<Stadium>>(url, {headers}).toPromise().then(stadiums => stadiums['_embedded']['stadiums']);
 }
+
   save(team:Team): Observable<Team>{
     let url= 'http://localhost:8080/teams'
     let headers = new HttpHeaders()
@@ -46,6 +47,13 @@ export class TeamService{
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
     return this.http.get<Stadium>(url, {headers});
+  }
+  findLeague(id: string): Observable<League>{
+
+    const url = 'http://localhost:8080/teams/' + id + '/league/';
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+    return this.http.get<League>(url, {headers});
   }
 
   create(id: string): Observable<Team>{

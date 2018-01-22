@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="card">
+
+
+  <div class="form-group">
+
+    <form *ngIf="team">
+
+      <div class="header">
+        <h1 class="title">{{team.name}}</h1>
+      </div>
+
+      <div class="form-group">
+        <h3><label>Hometown:</label></h3>
+        <p>{{team.hometown}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <h3><label>StartDate:</label></h3>
+        <p>{{team.startDate}}</p>
+      </div>
+
+      <div>
+        <h3><label>Players: </label></h3>
+        <p *ngFor="let player of team.player">
+
+          <a [routerLink]="['/player-view', player.id]">{{player.firstName}} {{player.lastName}}</a>
+        </p>
+      </div>
+
+
+      <div class="form-group">
+        <h3><label>Stadium:</label></h3>
+
+        <a [routerLink]="['/stadium-view', stadium.id]">{{stadium.name}}</a>
+
+      </div>
+      <!-- //TODO: check why stadium.id is throwing an "Cannot read property 'id' of undefined error -->
+
+      <div class="form-group">
+        <h3><label>League:</label></h3>
+
+        <a [routerLink]="['/league-view', league.id]">{{league.name}}</a>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

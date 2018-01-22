@@ -13,10 +13,11 @@ import {StadiumEditComponent} from "./stadium/stadium-edit/stadium-edit.componen
 import {LeagueEditComponent} from "./league/league-edit/league-edit.component";
 import {ImpressumComponent} from "./impressum/impressum.component";
 
-import {LeagueViewComponent} from "./league/league-view/league-view.component.component";
-
-import {PlayerViewComponent} from "./player/player-view/player-view.component";
-import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";
+import {LeagueViewComponent} from "./league/league-view/league-view.component";
+import {TeamViewComponent} from "./team/team-view/team-view.component";
+/*import {PlayerViewComponent} from "./player/player-view/player-view.component";
+import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";*/
+//TODO: uncomment your component after updating
 
 export const BASKETBALL_ROUTES: Routes = [
   // Standard Components
@@ -92,7 +93,10 @@ export const BASKETBALL_ROUTES: Routes = [
     path:'league-view/:id',
     component: LeagueViewComponent
   },
-
+  {
+    path:'team-view/:id',
+    component: TeamViewComponent
+  }/*,
   {
     path:'player-view/:id',
     component: PlayerViewComponent
@@ -100,5 +104,7 @@ export const BASKETBALL_ROUTES: Routes = [
   {
     path:'stadium-view/:id',
     component: StadiumViewComponent
-  }
+  }*/
+  //TODO: uncomment your component after updating
+
 ];
