@@ -40,9 +40,9 @@ export class StadiumCreateComponent implements OnInit {
           stadium => { this.stadium = stadium; this.errors=''; },
           err => {this.errors = 'Fehler!'; }
         );
-        /*this.stadiumService.findTeamByID("1").subscribe(team => { this.teamOfStadium = team; this.errors = ''; },
+  /*      this.stadiumService.findTeamByID("1").subscribe(team => { this.teamOfStadium = team; this.errors = ''; },
           err => {this.errors = 'Fehler!'; }
-        );*/
+        ); */
 
       }
 

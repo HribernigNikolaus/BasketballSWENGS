@@ -17,7 +17,8 @@ at the FH Joanneum Graz. This is the project Folder for the frontend part create
 3. [Project planning](#project-planning) 
 4. [Features](#features)
 5. [Special Features](#special-features)
-6. [Planned Tasks after Kick-off VS. Final Version](#planned)
+6. [Planned Tasks after Kick-off VS. Final Version](#planned-tasks-after-kick-off-vs.-final-version)
+7. [Activities](#activities)
 7. [Lessons Learned](#lessons-learned)
 
 
@@ -65,7 +66,8 @@ The dependencies are shown in the ER diagram:
 ![ER - Diagram](projectdocu/ER_Diagram.jpg)
 
 
-Every Teammember has to implement its own entity:   
+Every Teammember has to implement its own entity:  
+   
 **Carina - _"League"_**  
 **Nikolaus - _"Player"_**  
 **Patrick  - _"Team_**  
@@ -78,6 +80,10 @@ meetings + VCS + whatsapp
 => ./projectdoku/ 
 Tafelbilder von Kick-Off Meeting 
 Datenbank ER Planung 
+
+![Strukturplan](projectdocu/Strukturplan.jpg)  
+
+
 
 # Features
 
@@ -98,7 +104,49 @@ erweiterte Security durch OATH2
 
 
 
-##geplante Tasks nach erstem Meeting
-##Finale Version und unterschiede zur ursprünglich geplanten Version
+# Planned Tasks after Kick-off VS. Final Version
+
+## Kick-off:
+
+**Ideas:**   
+* Backend as proposed  
+* Frontend Pages :  
+    * Home  
+    * League  
+    * Team   
+    * Player  
+    * Stadium  
+* Https keys for backend  
+* User login     
+    * Guests --> Show  
+    * Admin  --> Edit, Create
+    
+## Final Version:
+
+* blablabla  
+    * und nochmal blabla 
+    * net vergessen bla
+        
+
+# Activities
+
+| Carina          	| Vanessa     	| Niki        	| Patrick 	|
+| -----------------	| -------------	| -------------	| ---------	|
+| Documentation   	| Design      	| Datenbanken 	| Zeug    	|
+| League - Entity 	| Validierung 	| Backend      	| Zeug    	|
+| View Component  	| Formulare   	| Player        | Zeug    	|
+| Presentation      | Zeug          | Foreign Keys  | Zeug      |
+|                 	|             	| etc.          |         	|
+|                 	|             	|             	|         	|
+|                 	|             	|             	|         	|
+|                 	|             	|             	|         	|
+
 
 # Lessons Learned 
+• Zeug  
+• Zeug  
+• Zeug  
+• Zeug  
+• Zeug  
+
+
