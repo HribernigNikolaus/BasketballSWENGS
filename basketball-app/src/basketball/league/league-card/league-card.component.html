@@ -15,7 +15,7 @@
     <p>Teams: </p>
 
     <p *ngFor="let team of item.team">
-      <label>Team:  </label>
+
       <a [routerLink]="['team', team.id]">{{team.name}}</a>
     </p>
 

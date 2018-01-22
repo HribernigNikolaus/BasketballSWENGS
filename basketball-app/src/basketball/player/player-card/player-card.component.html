@@ -27,14 +27,16 @@
         (click)="deselect()">
       </button>
     </p>-->
-    <a class="btn btn-default"
+    <p>
+    <a class="button"
        [routerLink] = "['/player-edit', item.id, { showDetails: true }]">
       Edit
     </a>
-    <a class="btn btn-default"
+    <a class="button"
        (click)="deletePlayer(item.id)">
       Remove
     </a>
+    </p>
   </div>
   <!--
 
