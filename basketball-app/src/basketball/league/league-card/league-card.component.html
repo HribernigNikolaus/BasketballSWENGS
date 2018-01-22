@@ -16,26 +16,31 @@
 
     <p *ngFor="let team of item.team">
 
-      <a [routerLink]="['team', team.id]">{{team.name}}</a>
+      <a [routerLink]="['/team-view', team.id]">{{team.name}}</a>
     </p>
 
     <ng-content select=".bottom"></ng-content>
 <p>
-      <button
+      <a
         class="button">
         Remove
-      </button>
+      </a>
+</p>
+    <p>
+  <a class="button"
+     [routerLink] = "['/league-edit', item.id, { showDetails: true }]">
+    Edit
+  </a>
+    </p>
+<p>
+  <a class="button"
+     [routerLink] = "['/league-view', item.id, { showDetails: true }]">
+    Details
+  </a>
 </p>
 
-    <a class="btn btn-default"
-       [routerLink] = "['/league-edit', item.id, { showDetails: true }]">
-      Edit
-    </a>
 
-    <a class="btn btn-default"
-       [routerLink] = "['/league-view', item.id, { showDetails: true }]">
-      Details
-    </a>
+
   </div>
 </div>
 
