@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
   <div class="header">
     <h1 class="title">Add a Team</h1>
@@ -13,7 +7,7 @@
 
   </div>
 
-  <form *ngIf="team">
+  <form #form="ngForm" *ngIf="team">
 
 
     <div class="form-group" >
@@ -169,10 +163,9 @@
 
 
 
-    <button class="btn btn-default" (click)="saveTeam()">Save</button>
+    <button class="btn btn-default" [disabled]="!form.valid" (click)="saveTeam()">Save</button>
 
   </form>
 
 </div>
-</body>
-</html>
+</div>

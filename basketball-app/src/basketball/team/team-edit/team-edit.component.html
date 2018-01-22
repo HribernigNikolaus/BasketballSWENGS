@@ -12,7 +12,7 @@
 
   <div class="form-group">
 
-    <form *ngIf="team">
+    <form #form="ngForm" *ngIf="team">
 
 
       <div class="form-group" >
@@ -170,7 +170,7 @@
 
 
 
-      <button class="btn btn-default" (click)="saveLeague()">Save</button>
+      <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague()">Save</button>
 
     </form>
   </div>

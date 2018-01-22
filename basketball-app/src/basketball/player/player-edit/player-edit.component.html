@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
   <div class="header">
     <h1 class="title">Edit a Player</h1>
@@ -13,7 +7,7 @@
 
   </div>
 
-  <form *ngIf="player">
+  <form #form="ngForm" *ngIf="player">
 
     <div class="form-group" >
 
@@ -197,12 +191,9 @@
       </select>
 -->
 
-    <button class="btn btn-default" (click)="savePlayer()">Save</button>
+    <button class="btn btn-default" [disabled]="!form.valid" (click)="savePlayer()">Save</button>
 
   </form>
 
 </div>
-</body>
-</html>
-
-{{player|json}}
+</div>

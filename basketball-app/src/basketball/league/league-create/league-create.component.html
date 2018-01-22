@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
   <div class="header">
     <h1 class="title">New League</h1>
@@ -12,7 +6,7 @@
   <div class="form-group">
 
 
-    <form *ngIf="league">
+    <form #form="ngForm" *ngIf="league">
 
       <div class="form-group">
         <label>Name:</label>
@@ -68,13 +62,13 @@
       </div>
 
       <div class="form-group">
-        <label>Land: </label>
+        <label>Country: </label>
         <input [(ngModel)]="league.land" name="land"
                class="form-control"
                placeholder="Enter a land..."
                 #land="ngModel"
                required
-               minlength="4"
+               minlength="3"
                maxlength="24"
                pattern="[a-zA-Z -]*"
         >
@@ -156,10 +150,9 @@
 
 
 
-      <button class="btn btn-default" (click)="saveLeague()">Save</button>
+      <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague()">Save</button>
 
     </form>
   </div>
 </div>
-</body>
-</html>
+</div>

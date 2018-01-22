@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="container3">
 <div class="card">
   <div class="header">
     <h1 class="title">Add a Player</h1>
@@ -13,11 +7,10 @@
 
   </div>
 
-  <form *ngIf="player">
+  <form #form="ngForm" *ngIf="player">
 
     <div class="form-group" >
 
-      <div class="form-group">
         <label>Playernumber:</label>
         <input [(ngModel)]="player.playerNumber" name="playerNumber"
                placeholder="Enter a playernumber..."
@@ -49,7 +42,7 @@
              maxlength="24"
              pattern="[a-zA-Z -]*"
       >
-    </div>
+
 
     <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
          class="alert alert-danger">
@@ -103,7 +96,6 @@
       <input type="text" [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
              class="form-control"
              placeholder="13.08.1994"
-      <input [(ngModel)]="player.dayOfBirth" name="dayOfBirth"
              #dayOfBirth="ngModel"
              required
              pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
@@ -206,10 +198,9 @@
     </div>-->
 
 
-    <button class="btn btn-default" (click)="createPlayer()">Save</button>
+    <button class="btn btn-default" [disabled]="!form.valid" (click)="createPlayer()">Save</button>
 
   </form>
 
 </div>
-</body>
-</html>
+</div>
