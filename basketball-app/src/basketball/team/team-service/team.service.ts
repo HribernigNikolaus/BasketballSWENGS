@@ -54,12 +54,6 @@ export class TeamService{
       .set('Accept', 'application/json');
     return this.http.get<Array<Player>>(url, {headers}).toPromise().then(teams => teams['_embedded']['players']);
   }
-  findStadiums(): Promise<Array<Stadium>>{
-    let url = 'http://localhost:8080/stadiums'
-    let headers = new HttpHeaders().set('Accepct', 'application/json');
-    return this.http.get<Array<Stadium>>(url, {headers}).toPromise().then(stadiums => stadiums['_embedded']['stadiums']);
-}
-
   save(team:Team): Observable<Team>{
     let url= 'http://localhost:8080/teams'
     let headers = new HttpHeaders()
@@ -197,5 +191,11 @@ export class TeamService{
     const headers = new HttpHeaders()
       .set('Accept', 'application/json');
     return this.http.post<Team>(url, this.teamWithoutPlayer, {headers});
+  }
+  deleteTeam(team:Team):Observable<Team>{
+    let url = 'http://localhost:8080/teams/'+team.id;
+    let headers = new HttpHeaders().set('Accept', 'application/json');
+    return this.http.delete<Team>(url, { headers });
+
   }
 }

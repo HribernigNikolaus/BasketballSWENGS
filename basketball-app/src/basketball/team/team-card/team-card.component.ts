@@ -14,6 +14,7 @@ export class TeamCardComponent implements OnInit {
   @Input() selected: boolean;
   @Output() selectedChange = new EventEmitter<boolean>();
   playersOfTeam:Array<Player>=[];
+  errors:String;
 
   ngOnInit() {
     this.teamService.findPlayersOfTeam(this.item).then(
@@ -28,7 +29,20 @@ export class TeamCardComponent implements OnInit {
     this.selected = false;
     this.selectedChange.next(this.selected);
   }
-
+deleteTeam(item:Team){
+    this.teamService.findPlayersOfTeam(item).then(players=>{for(let player of players){
+      this.teamService.deletePlayerOfTeam(item, player).subscribe()
+    }
+    this.teamService.deleteTeam(item).subscribe(team=>{console.log("Erfolgreich");
+    window.location.reload();console.log("Redirection");
+  },err=>console.error("Error while deleting Stadium"));
+}).catch(
+    err => {
+  this.errors = 'Fehler!';
+  console.log("ERRRROOOOOORRRRR")
+}
+);
+}
 
 
 }
