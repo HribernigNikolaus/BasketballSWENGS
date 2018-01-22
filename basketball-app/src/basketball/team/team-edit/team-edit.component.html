@@ -113,22 +113,34 @@
         </div>
       </div>
 
-      <div>
-        <label>Players:</label>
-        <input [(ngModel)]="team.players" name="players"
-               class="form-control"
-               #players="ngModel"
-               player = "Choose Players..."
-               required>
-      </div>
+      <div class ="form-group" *ngIf="playersOfTeam">
+        <label>Team:</label>
+        <select multiple [(ngModel)]="playersOfTeam" name="teamname">
+          <option *ngFor="let player of allPlayers"[value]="player" [selected] = "player == playersOfTeam">{{player.firstName}} {{player.lastName}}</option>
+        </select>
+      </div><!--
       <div *ngIf="players.invalid && (players.dirty || players.touched)"
            class="alert alert-danger">
 
         <div *ngIf="players.errors.required">
           Some Players are required.
         </div>
+      </div>-->
+
+      <div class ="form-group" *ngIf="stadiumOfTeam">
+        <label>Stadium:</label>
+        <select [(ngModel)]="stadiumOfTeam.id" name="stadiumName">
+          <option *ngFor="let stadium of allStadiums"[value]="stadium.id" [selected] = "stadium.id == stadiumOfTeam.id">{{stadium.name}}</option>
+        </select>
       </div>
 
+      <div class ="form-group" *ngIf="leagueOfTeam">
+        <label>League:</label>
+        <select [(ngModel)]="leagueOfTeam.id" name="leagueName">
+          <option *ngFor="let league of allLeagues"[value]="league.id" [selected] = "league.id == leagueOfTeam.id">{{league.name}}</option>
+        </select>
+      </div>
+<!--
 
       <div *ngIf="stadium" class="form-group">
         <label>Stadium:</label>
@@ -173,9 +185,12 @@
 
 
 
-      <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague()">Save</button>
+      <button class="btn btn-default" [disabled]="!form.valid" (click)="saveLeague(team)">Save</button>
 
     </form>
+
+    <pre>{{team | json}}</pre>
   </div>
 </div>
 
+</div>

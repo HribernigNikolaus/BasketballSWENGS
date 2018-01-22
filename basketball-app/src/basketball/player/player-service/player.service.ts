@@ -67,7 +67,7 @@ export class PlayerService{
     this.createPlayerInstance(player)
       .subscribe(player=>{this.createTeamOfPlayer(player, teamId)
           .subscribe(team=>{player.team=team;},
-              err=>console.error("Error saving team of Player"));this.router.navigate(['/player']);}
+              err=>console.error("Error saving team of Player"));this.router.navigate(['/players']);}
       ,err=>{console.error('Fehler beim Speichern')});
 
   }

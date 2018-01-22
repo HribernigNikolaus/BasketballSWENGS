@@ -23,7 +23,7 @@
 
       <div>
         <h3><label>Players: </label></h3>
-        <p *ngFor="let player of team.player">
+        <p *ngFor="let player of team.players">
 
           <a [routerLink]="['/player-view', player.id]">{{player.firstName}} {{player.lastName}}</a>
         </p>

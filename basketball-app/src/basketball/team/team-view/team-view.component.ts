@@ -5,6 +5,7 @@ import {TeamService} from "../team-service/team.service";
 import {Stadium} from "../../entities/stadium";
 import {Team} from "../../entities/team";
 import {League} from "../../entities/league";
+import {Player} from "../../entities/player";
 
 @Component({
   selector: 'team-view',
@@ -18,7 +19,7 @@ export class TeamViewComponent implements OnInit {
   team: Team;
   errors: string;
   stadium: Stadium;
-  allStadiums: Array<Stadium>;
+  allPlayers: Array<Player>;
   league: League;
 
   constructor(
@@ -35,7 +36,9 @@ export class TeamViewComponent implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.teamService.findById(this.id).subscribe(
-          team => { this.team = team; this.errors = ''; },
+          team => { this.team = team; this.errors = '';
+            this.teamService.findPlayersOfTeam(this.team)
+              .then(stadiums => this.team.players = stadiums).catch(err => console.log(err));},
           err => {this.errors = 'Fehler!'; }
         );
         this.teamService.findStadium(this.id).subscribe(
@@ -43,8 +46,7 @@ export class TeamViewComponent implements OnInit {
           err => {this.errors = 'Fehler!';
           }
         );
-        this.teamService.findStadiums()
-          .then(stadiums => this.allStadiums = stadiums).catch(err => console.log(err));
+
 
         this.teamService.findLeague(this.id).subscribe(
           league => {this.league = league; this.errors  = ''; },

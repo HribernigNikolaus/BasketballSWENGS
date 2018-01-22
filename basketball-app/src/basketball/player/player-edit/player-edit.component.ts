@@ -71,11 +71,11 @@ export class PlayerEditComponent implements OnInit {
     this.playerService.saveTeamAndPlayer(this.player, this.teamOfPlayer.id).subscribe(
       player => {
         this.player = player;
-        //console.log(player.team.id);
-        //this.teamOfPlayer.id=player.team.id;
+        //console.log(players.team.id);
+        //this.teamOfPlayer.id=players.team.id;
         //console.log(this.teamOfPlayer.name)
 
-        this.router.navigate(['/player']);
+        this.router.navigate(['/players']);
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }

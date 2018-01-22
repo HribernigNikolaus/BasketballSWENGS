@@ -14,8 +14,7 @@
     <p> Mascot: {{item.mascot}}</p>
 
     <label>Players: </label>
-    <p *ngFor="let player of item.player">
-
+    <p *ngFor="let player of item.players">
       <a [routerLink]="['/player-view', player.id]">{{player.firstName}} {{player.lastName}}</a>
     </p>
 

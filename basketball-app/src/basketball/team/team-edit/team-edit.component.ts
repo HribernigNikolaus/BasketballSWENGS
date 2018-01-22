@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Team} from "../../entities/team";
 import {TeamService} from "../team-service/team.service";
 import {Stadium} from "../../entities/stadium";
+import {Player} from "../../entities/player";
 
 @Component({
   selector: 'team-edit',
@@ -18,8 +19,12 @@ export class TeamEditComponent implements OnInit {
   showDetails: string;
   team: Team;
   errors: string;
-  stadium: Stadium;
-  allStadiums: Array<Stadium>;
+  allPlayers:Array<Player>=[];
+  playersOfTeam:Array<Player>=[];
+  allStadiums:Array<Stadium>=[];
+  allLeagues:Array<League>=[];
+  stadiumOfTeam:Stadium;
+  leagueOfTeam:League;
 
   editForm: FormGroup;
 
@@ -37,16 +42,38 @@ export class TeamEditComponent implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.teamService.findById(this.id).subscribe(
-          team => { this.team = team; this.errors = ''; },
+          team => { this.team = team;console.log(team); this.errors = ''; this.teamService.findPlayersOfTeam(this.team).then(
+            players => {
+              this.playersOfTeam = players;
+              this.team.players = players;
+
+              console.log(this.playersOfTeam);
+              //console.log(this.teamsOfStadium);
+              this.errors = '';
+            }).catch(
+            err => {
+              this.errors = 'Fehler!';
+              console.log("ERRRROOOOOORRRRR")
+            })},
           err => {this.errors = 'Fehler!'; }
         );
         this.teamService.findStadium(this.id).subscribe(
-          stadium => {this.stadium = stadium; this.errors  = ''; },
+          stadium => {this.stadiumOfTeam = stadium; this.errors  = ''; },
           err => {this.errors = 'Fehler!';
           }
         );
-        this.teamService.findStadiums()
-          .then(stadiums => this.allStadiums = stadiums).catch(err => console.log(err));
+        this.teamService.findAllPlayers().then(players => this.allPlayers = players).catch(err=>console.log(err));
+        this.teamService.findAllLeagues().then(leagues => this.allLeagues = leagues).catch(err=>console.log(err));
+        this.teamService.findAllStadiums().then(stadiums => this.allStadiums = stadiums).catch(err=>console.log(err));
+        this.teamService.findLeague(this.id).subscribe(
+          league => {this.leagueOfTeam = league; this.errors  = ''; },
+          err => {this.errors = 'Fehler!';
+          }
+        );
+
+
+
+
 
       }
     );
@@ -73,15 +100,27 @@ export class TeamEditComponent implements OnInit {
   }
 
 
-  saveLeague() {
-    this.teamService.save(this.team).subscribe(
-      team => {
-        this.team = team;
-        this.router.navigate(['/league']);
-        this.errors = 'Saving was successful!';
-      },
-      err=> { this.errors = 'Error saving data'; }
-    );
+  saveLeague(team:Team) {
+    this.team.players = team.players;
+    console.log(team.players);
+    for(let player of this.team.players) {
+      let isFound = false;
+
+      for(let newPlayer of this.playersOfTeam) {
+
+        if (player.id == newPlayer.id) {
+          isFound = true;
+          console.log(player)
+
+        }
+      }
+      if(!isFound)
+      {
+        this.teamService.deletePlayerOfTeam(this.team, player).subscribe();
+      }
+
+    }
+    this.teamService.saveAllUpdate(this.team, this.playersOfTeam, this.stadiumOfTeam, this.leagueOfTeam)
   }
 
 }

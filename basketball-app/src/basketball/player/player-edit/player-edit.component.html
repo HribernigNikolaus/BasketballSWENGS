@@ -185,7 +185,7 @@
 
       <label>Team:</label>
 
-      <select [(ngModel)]="player.team">
+      <select [(ngModel)]="players.team">
 
         <option *ngFor="let team of allTeams"[value]="team.id">{{team.name}}</option>
       </select>
