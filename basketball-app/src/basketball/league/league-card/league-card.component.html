@@ -10,7 +10,6 @@
     <ng-content select=".top"></ng-content>
     <h4> {{item.fullName}}</h4>
     <p> Land: {{item.land}}</p>
-    <p> TeamCount: {{item.teamCount}}</p>
     <p> Foundation Year: {{item.foundationYear}}</p>
     <p>Teams: </p>
 
@@ -22,7 +21,8 @@
     <ng-content select=".bottom"></ng-content>
 <p>
       <a
-        class="button">
+        class="button"
+        (click)="deleteLeague(item)">
         Remove
       </a>
 </p>

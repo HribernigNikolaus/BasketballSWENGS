@@ -40,6 +40,7 @@ export class PlayerViewComponent implements OnInit {
         this.playerService.findById(this.id).subscribe(
           player => {
             this.player = player;
+            this.playerService.findTeamOfPlayer(player).subscribe(team=>this.teamOfPlayer=team,err=>console.error(err))
             this.errors = '';
           },
           err => {

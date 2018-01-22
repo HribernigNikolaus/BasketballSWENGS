@@ -2,7 +2,8 @@ import {League} from "../../entities/league";
 import {LeagueService} from "../league-service/league.service";
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Team} from "../../entities/team";
 
 @Component({
   selector: 'stadium-edit',
@@ -18,11 +19,14 @@ export class LeagueCreateComponent implements OnInit {
   errors: string;
 
   editForm: FormGroup;
+  allTeams:Array<Team>;
+  teamsOfLeague:Array<Team>;
 
   constructor(
     private route: ActivatedRoute,
     private leagueService: LeagueService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -32,7 +36,10 @@ export class LeagueCreateComponent implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.leagueService.create(this.id).subscribe(
-          league => { this.league = league; this.errors=''; },
+          league => { this.league = league; this.errors='';
+            this.leagueService
+              .findAllTeams().then(teams => {this.allTeams = teams; console.log(this.allTeams)})
+              .catch(err => console.log(err));},
           err => {this.errors = 'Fehler!'; }
         );
       }
@@ -49,9 +56,22 @@ export class LeagueCreateComponent implements OnInit {
   }
 
   saveLeague() {
-    this.leagueService.save(this.league).subscribe(
+    this.league.teams = this.teamsOfLeague;
+    //console.log(this.teamsOfStadium);
+    this.leagueService.createNew(this.league).subscribe(
       league => {
         this.league = league;
+        for(let team of this.teamsOfLeague)
+        {
+          //console.log(team);
+          //console.log(stadium);
+          this.leagueService.saveTeamOfLeague(this.league, team.id).subscribe(
+            team=>      {console.log("Team created");
+              //console.log("Team eddided")
+            },
+            err=>{console.error('Fehler beim Speichern')}
+          )}
+        this.router.navigate(['/league']);
         this.errors = 'Saving was successful!';
       },
       err=> { this.errors = 'Error saving data'; }

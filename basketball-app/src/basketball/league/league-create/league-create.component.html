@@ -92,25 +92,6 @@
       </div>
 
 
-      <div class="form-group">
-        <label>Team Count :</label>
-        <input [(ngModel)]="league.teamCount" name="teamCount"
-               class="form-control"
-               placeholder="Enter a team count..."
-               #teamCount="ngModel"
-               required
-               pattern="[0-9]*">
-      </div>
-      <div *ngIf="teamCount.invalid && (teamCount.dirty || teamCount.touched)"
-           class="alert alert-danger">
-
-        <div *ngIf="teamCount.errors.required">
-          A team count is required.
-        </div>
-        <div *ngIf="teamCount.errors.pattern">
-          Only numbers are allowed.
-        </div>
-      </div>
 
       <div class="form-group">
         <label>Foundation Year: </label>
@@ -128,25 +109,13 @@
         </div>
 
       </div>
-      <div class="form-group">
-        <label>Teams: </label>
-        <select class="form-control" [(ngModel)]="league.teams" name="team" #team="ngModel" required>
-          <option value="">Select Team</option>
-          <option *ngFor="let team of teams"
-                  [value]="team.name">
-            {{team.name}}
-          </option>
+      <div class ="form-group">
+        <label>Team:</label>
+        <select multiple [(ngModel)]="teamsOfLeague" name="teamname">
+          <option *ngFor="let team of allTeams"[value]="team" [selected] = "team == teamsOfLeague">{{team.name}}</option>
         </select>
       </div>
 
-      <div *ngIf="team.invalid && (team.dirty || team.touched)"
-           class="alert alert-danger">
-
-
-        <div *ngIf="team.errors.required">
-          A team is required.
-        </div>
-      </div>
 
 
 

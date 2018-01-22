@@ -3,6 +3,7 @@ import {LeagueService} from "../league-service/league.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {League} from "../../entities/league";
+import {Team} from "../../entities/team";
 
 @Component({
   selector: 'league-edit',
@@ -15,6 +16,9 @@ export class LeagueEditComponent implements OnInit {
   showDetails: string;
   league: League;
   errors: string;
+  allTeams:Array<Team> = [];
+  teamsOfLeague:Array<Team>=[];
+
 
   editForm: FormGroup;
 
@@ -32,9 +36,27 @@ export class LeagueEditComponent implements OnInit {
         this.showDetails = params['showDetails'];
 
         this.leagueService.findById(this.id).subscribe(
-          league => { this.league = league; this.errors=''; },
+          league => { this.league = league; this.errors='';
+            this.leagueService.findTeamsOfLeague(this.league).then(
+              teams => {
+                this.teamsOfLeague = teams;
+                this.league.teams = teams;
+                //console.log(this.teamsOfStadium);
+                this.errors = '';
+              }).catch(
+              err => {
+                this.errors = 'Fehler!';
+                console.log("ERRRROOOOOORRRRR")
+              }
+            );
+            this.leagueService
+              .findAllTeams().then(teams => {this.allTeams = teams; console.log(this.allTeams)})
+              .catch(err => console.log(err));
+
+          },
           err => {this.errors = 'Fehler!'; }
         );
+
       }
     )
 
@@ -58,14 +80,33 @@ export class LeagueEditComponent implements OnInit {
     */
   }
     saveLeague() {
-    this.leagueService.save(this.league).subscribe(
-      league => {
-        this.league = league;
-        this.router.navigate(['/league']);
-        this.errors = 'Saving was successful!';
-              },
-      err=> { this.errors = 'Error saving data'; }
-    );
+      //console.log(this.teamsOfStadium)
+      for(let team of this.league.teams) {
+        let isFound = false;
+
+        for(let newTeam of this.teamsOfLeague) {
+
+          if (team.id == newTeam.id) {
+            isFound = true;
+            console.log(team)
+
+          }
+        }
+        if(!isFound)
+        {
+          this.leagueService.deleteTeamsOfLeague(this.league, team).subscribe();
+        }
+
+      }
+      this.leagueService.saveTeamAndLeague(this.league, this.teamsOfLeague).subscribe(
+        league => {
+          this.league = league;
+          this.router.navigate(['/league']);
+          this.errors = 'Saving was successful!';
+        },
+        err=> { this.errors = 'Error saving data'; }
+
+      );
   }
 
 }
