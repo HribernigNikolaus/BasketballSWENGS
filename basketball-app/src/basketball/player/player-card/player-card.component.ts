@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Player} from "../../entities/player";
 import {PlayerService} from "../player-service/player.service";
 import {Team} from "../../entities/team";
-import {Observable} from "rxjs/Observable";
 import {Router} from "@angular/router";
 
 @Component({
@@ -36,9 +35,9 @@ export class PlayerCardComponent implements OnInit {
 
   deletePlayer(id:string){
     this.playerService.deletePlayer(id).subscribe(player=>{console.log("Erfolgreich");
-    this.router.navigate(['/players'])
+    window.location.reload();console.log("Redirection");
     },err=>console.error("Error while deleting Player"));
-  }
+    }
 
 
 }
