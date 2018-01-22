@@ -82,8 +82,8 @@ To see the changes and updates happening in our project we used GitHub as workin
 So it was possible to be up to date all the time and have a focus on the effort. In addition we create  
 a Whatsapp Group for daily communication. Furthermore we had regular meetings to discuss the progress  
 and work together. The Whiteboard and flipchart were important elements to talk about the project-structure and other details... 
-
-![Strukturplan](projectdocu/Strukturplan.jpg)  
+ 
+![Strukturplan](projectdocu/Strukturplan.jpg) 
 
 # Features
 
@@ -98,9 +98,8 @@ and work together. The Whiteboard and flipchart were important elements to talk 
 • Subdividing Components (using more Components)  
 
 
-# Special Features
-erweiterte Security durch OATH2 
-=> nähere Infos nach Fertigstellung
+# Special Features  
+Maps in Stadium Entity
 
 
 # Planned Tasks after Kick-off VS. Final Version
@@ -141,16 +140,16 @@ erweiterte Security durch OATH2
 | -----------------	| -----------------	| ----------------	| --------------	|
 | League - Entity   | Stadium - Entity  | Player - Entity 	| Teams - Entity  	|
 | Documentation 	| Design        	| Database       	| Backend           |
-| View Component  	| Formulare   	    | Backend           | Search    	    |
+| View Component  	| Formulare   	    | Backend           | Support        	|
 | Presentation      | Validierung       | Foreign Keys      | Security          |
 | HTML / CSS        | HTML / CSS      	| CRUD              | CRUD        	    |
-| CRUD              | CRUD         	    | Filter  	        | Testdaten         |
+| CRUD              | CRUD         	    | Support    	    | Testdaten         |
 | Testdata etc.     | etc.         	    | etc.   	        | etc.     	        |
 
 
 # Lessons Learned  
 
-* Timemanagement very hard because of
+* Time Management very hard because of
     * other projects  
     * because team members are part of different groups - so they have different timetables
 * to read in new topics – very time-comsuming
