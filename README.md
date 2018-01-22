@@ -98,9 +98,8 @@ and work together. The Whiteboard and flipchart were important elements to talk 
 • Subdividing Components (using more Components)  
 
 
-# Special Features
-erweiterte Security durch OATH2 
-=> nähere Infos nach Fertigstellung
+# Special Features  
+Maps in Stadium Entity
 
 
 # Planned Tasks after Kick-off VS. Final Version
