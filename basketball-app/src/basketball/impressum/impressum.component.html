@@ -1,4 +1,4 @@
-<div class="container3">
+<div><div class="container3">
   <h2>Impressum</h2>
 
   <p>This website was created in the course of the lecture Software Engineering Selective as a student project under the instruction of the professors DI (FH) Johann Blauensteiner
@@ -16,7 +16,7 @@
   </ul>
 
 
-
+<div class = "box">
   <h2> Contact</h2>
   <p>  Institution: <a href="https://www.fh-joanneum.at" target="_blank"> FH JOANNEUM Gesellschaft mbH</a><br>
     Address: <a href="https://www.google.at/maps/place/Fachhochschule+Joanneum/@47.069313,15.40799,17z/data=!3m1!4b1!4m2!3m1!1s0x476e350ee5b5f885:0xdcf52580ffd6a24e?hl=de" target="_blank" >
@@ -26,6 +26,21 @@
     E-Mail: <a href="mailto:info@fh-joanneum.at">info@fh-joanneum.at</a><br><br><br>
     Course of Studies: <a href="https://www.fh-joanneum.at/informationsmanagement/bachelor/" target="_blank">IMA15</a><br><br>
   </p>
-
-
 </div>
+   <div class="box">
+     <h3>{{ title }}</h3>
+     <agm-map #agmMap [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+       <agm-marker
+         [latitude]="lat"
+         [longitude]="lng">
+         [zoom]="zoom"
+         <agm-info-window>
+           <strong>FH Joanneum</strong>
+         </agm-info-window>
+       </agm-marker>
+     </agm-map>
+  </div>
+</div>
+</div>
+
+

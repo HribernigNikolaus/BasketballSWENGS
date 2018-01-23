@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "../shared/shared.module";
 
 import { PlayerViewComponent } from '../basketball/player/player-view/player-view.component';
+import {OAuthModule} from "angular-oauth2-oidc";
 
 
 
@@ -28,8 +29,6 @@ import { PlayerViewComponent } from '../basketball/player/player-view/player-vie
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    PlayerViewComponent
-
 
   ],
   imports: [
@@ -40,8 +39,7 @@ import { PlayerViewComponent } from '../basketball/player/player-view/player-vie
     CommonModule,
     BrowserAnimationsModule,
     SharedModule,
-
-
+    OAuthModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES, { useHash: true, enableTracing: true})
   ],
   providers: [],

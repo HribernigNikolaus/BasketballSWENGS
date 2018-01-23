@@ -30,9 +30,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {LeagueViewComponent} from "./league/league-view/league-view.component";
 import {TeamViewComponent} from "./team/team-view/team-view.component";
 import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";
-/*import {PlayerViewComponent} from "./players/players-view/players-view.component";
-import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.component";*/
-//TODO: import your Component after uploading them
+import {PlayerViewComponent} from "./player/player-view/player-view.component";
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
   imports: [
@@ -41,7 +40,11 @@ import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.componen
     ReactiveFormsModule,
     SharedModule,
     BrowserModule,
-    RouterModule.forChild(BASKETBALL_ROUTES)
+    RouterModule.forChild(BASKETBALL_ROUTES),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCb7vs7RG6Dy7yacMnyD_QozO7lPc6VRGo'
+    })
+
   ],
   declarations: [
     LeagueComponent,
@@ -63,11 +66,10 @@ import {StadiumViewComponent} from "./stadium/stadium-view/stadium-view.componen
     ImpressumComponent,
     LeagueViewComponent,
     TeamViewComponent,
-    StadiumViewComponent/*,
+    StadiumViewComponent,
     PlayerViewComponent,
-    StadiumViewComponent*/
+    StadiumViewComponent
 
-    //TODO: uncomment your component after updating
   ],
   providers:[
     TeamService,
