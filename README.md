@@ -99,7 +99,7 @@ and work together. The Whiteboard and flipchart were important elements to talk 
 
 
 # Special Features  
-Maps in Stadium Entity
+Map in Impressum
 
 
 # Planned Tasks after Kick-off VS. Final Version
@@ -130,9 +130,7 @@ Maps in Stadium Entity
     * Stadium 
     * Impressum 
 * Https keys for backend  
-* User login     
-    * Guests --> Show  
-    * Admin  --> Edit, Create 
+* Special Feature --> Map in Impressum
 
 # Activities
 
